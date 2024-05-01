@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI/CD on </title>
+    <link>http://localhost:2382/cicd-ws/3-config/3.3-labs/3.3.3-monitoring/3.3.3.1-zabbix-copy/</link>
+    <description>Recent content in CI/CD on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:2382/cicd-ws/3-config/3.3-labs/3.3.3-monitoring/3.3.3.1-zabbix-copy/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

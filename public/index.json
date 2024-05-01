@@ -1,0 +1,239 @@
+[
+{
+	"uri": "http://localhost:1313/cicd-ws/",
+	"title": " DevOps Projects ",
+	"tags": [],
+	"description": "",
+	"content": "Projects DevOps is a methodology that combines software development and IT operations to create a streamlined and automated development process. To achieve this, there are several tools that DevOps teams use to automate processes, manage infrastructure, and monitor applications\nIn this workshop, we will focus in some of DevOps tools:\nDevOps tools categorized: Version Control Systems (VCS): GitHub, GitLab Continuous Integration (CI) Tools: Jenkins, GitLab Containerization and Orchestration: Docker, Kubernetes Infrastructure as Code (IaC): Terraform Monitoring and Logging Tools: Prometheus, Zabbix, Grafana, ELK Stack Content Introduction Prepairation Configuration Cleanup "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.1-jenkins/3.3.1.1-cicd/",
+	"title": "CICD",
+	"tags": [],
+	"description": "",
+	"content": "In a Jenkins CI/CD setup, an agent is a worker node that performs the tasks defined in the Jenkins pipeline.\nAgent Hostname: Lab-Server\nRequired: Installed JAVA Configuration:\nInstall JAVA: apt install openjdk-11-jdk -y Create User: adduser jenkins Create working folder: mkdir /var/lib/jenkins Permission: chown jenkins. /var/lib/jenkins cd /var/lib/jenkins/ su jenkins Jenkins-Server Add Node: Dashboard \u0026gt; Manage Jenkins \u0026gt; Nodes \u0026gt; New node\nNode name: lab-server Number of excute: 1 Lables: lab-server Custom workdir path: /var/lib/jenkins Add inbound port: 8999 Manage Jenkins - Security\nAgent - Fixed: 8999 Connect Jenkins to Gitlab-Server "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/2-prepair/2.1-docker/",
+	"title": "Container",
+	"tags": [],
+	"description": "",
+	"content": "A container is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings\nOverview Docker Docker is a platform that enables developers to build, package, ship, and run applications in containers. It provides tools and a platform to manage containerized applications across different environments, from development to production. Docker Compose Docker Compose is a tool provided by Docker that allows you to define and manage multi-container Docker applications. It uses a YAML file to configure the services, networks, and volumes required for your application Configuration Check the installed software\ndocker --version docker-compose --version Create a docker compose file to run the software on the container environment\ndocker-compose.yml version: \u0026#39;3\u0026#39;\rservices:\r# Terraform\rterraform:\rimage: hashicorp/terraform:latest\rvolumes:\r- .:/terraform\rworking_dir: /terraform\r# AWS CLI\u0026#39;\raws:\rimage: anigeo/awscli\renvironment:\rAWS_ACCESS_KEY_ID: \u0026#34;${AWS_ACCESS_KEY_ID}\u0026#34;\rAWS_SECRET_ACCESS_KEY: \u0026#34;${AWS_SECRET_ACCESS_KEY}\u0026#34;\rAWS_REGION: \u0026#34;${AWS_REGION}\u0026#34;\rAWS_DEFAULT_REGION: ap-southeast-1\rvolumes:\r- $PWD:/app\rworking_dir: /app "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.4-security/3.3.4.1-firewall/",
+	"title": "Firewall",
+	"tags": [],
+	"description": "",
+	"content": "Firewall security is processing \u0026hellip;.\npfSense: ntop-ng pfSense is an open-source firewall and router software distribution based on FreeBSD. It offers a wide range of features, including firewall functionality, routing, VPN support, and more. One of the powerful add-ons available for pfSense is ntopng (NTOP Next Generation), which provides deep packet inspection and traffic analysis capabilities. ntop-ng will monitoring network traffic and identifying potential security threats or policy violations, ntopng helps enhance network security and ensures compliance with regulatory requirements. It can detect suspicious activities, malware infections, unauthorized access attempts, and other security incidents in real-time. Overview Configuration Dashboard "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/",
+	"title": "Frontend",
+	"tags": [],
+	"description": "",
+	"content": "Overview Vagrant and Oracle VM Vitualbox Manager\nConfiguration Server name: machine1 - IP: 192.168.33.100\nPS D:\\LAB\\Vagrant\u0026gt; vagrant up machine1\rvagrant ssh machine1 Copy source to machine: scp -i d:\\LAB\\Vagrant\\.vagrant\\machines\\machine1\\virtualbox\\private_key \\LAB\\Vagrant\\datas\\todolist.zip vagrant@192.168.33.100:/home/vagrant Setup: sudo -i\rapt update\rapt install unzip\runzip todolist.zip\rmkdir /projects\rmv todolist /projects\rls -l /projects Add user for project: adduser todolist\rchown -R todolist:todolist /projects/todolist\rchmod -R 750 /projects/todolist Run Project: VUE Source :\nhttps://vuejs.org/guide/quick-start Prerequisites: Node.js - https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04 Install Aplication\napt update\rapt install nodejs\rapt install npm Configure foler and user\nsudo todolist\rcd /projects/todolist Review configure file:\npackage.json {\r\u0026#34;name\u0026#34;: \u0026#34;todolist\u0026#34;,\r\u0026#34;version\u0026#34;: \u0026#34;0.1.0\u0026#34;,\r\u0026#34;private\u0026#34;: true,\r\u0026#34;scripts\u0026#34;: {\r\u0026#34;serve\u0026#34;: \u0026#34;vue-cli-service serve\u0026#34;, \u0026#34;build\u0026#34;: \u0026#34;vue-cli-service build\u0026#34;\r},\r\u0026#34;dependencies\u0026#34;: {\r\u0026#34;bootstrap-vue\u0026#34;: \u0026#34;^2.22.0\u0026#34;,\r\u0026#34;core-js\u0026#34;: \u0026#34;^3.8.3\u0026#34;,\r\u0026#34;vue\u0026#34;: \u0026#34;^2.6.14\u0026#34;,\r\u0026#34;vue-router\u0026#34;: \u0026#34;^3.5.1\u0026#34;\r},\r\u0026#34;devDependencies\u0026#34;: {\r\u0026#34;@vue/cli-plugin-babel\u0026#34;: \u0026#34;~5.0.0\u0026#34;,\r\u0026#34;@vue/cli-plugin-router\u0026#34;: \u0026#34;~5.0.0\u0026#34;,\r\u0026#34;@vue/cli-service\u0026#34;: \u0026#34;~5.0.0\u0026#34;,\r\u0026#34;vue-template-compiler\u0026#34;: \u0026#34;^2.6.14\u0026#34;\r},\r\u0026#34;browserslist\u0026#34;: [\r\u0026#34;\u0026gt; 1%\u0026#34;,\r\u0026#34;last 2 versions\u0026#34;,\r\u0026#34;not dead\u0026#34;\r]\r} vue.config.js const { defineConfig } = require(\u0026#39;@vue/cli-service\u0026#39;)\rmodule.exports = defineConfig({\rtranspileDependencies: true\r})\rmodule.exports = {\rdevServer: {\rport: 3000\r},\r}; Run project\nnpm install\rnpm run build ISSUE: version Fix ISSUE: Update same version or latest\ncurl -s https://deb.nodesource.com/setup_18.x | sudo bash\rsudo apt install nodejs -y\rnode -v\rnpm run build Project will build file or folder. In this project VUE will build to a folder is : dist\nWe have 3 way to run a Fontend project: Webserver - Services - Pm2\nnpm run serve Checking : http://192.168.33.100:3000/\nRun with Nginx Webserver Install\napt install nginx -y Check port\nnetstat -tlpun Configure:\nChange default nginx port to 8999: cd /etc/nginx\nvi sites-avaiable/default server {\rlisten 8999 default_server;\rlisten [::]:8999 default_server; Test and apply configure: nginx -t and systemctl restart nginx Setup Project run Nginx port 8088:\nCreate configure file: vi conf.d/todolist.conf server {\rlisten 8088;\rroot /projects/todolist/dist/;\rindex index.html;\rtry_files $uri $uri/ /index.html;\r} ISSUE: User for nginx (vi /etc/nginx.conf -\u0026gt; user www-data) Fix: add user (www-data) to group todolist\nusermod -aG todolist www-data Apply configure: systemctl restart nginx or nginx -s reload Projects React Source: vision.zip\nUser: vision\nProject folder: /projects/vision\nRun application\nnpm install Run as services: vi /lib/systemd/system/vision.service\n[Service]\rType=simple\rUser=vision\rRestart=on-failure\rWorkingDirectory=/projects/vision/\rExecStart=npm run start -- --port=3000 systemctl daemon-reload systemctl start vision systemctl status vision Check: http://192.168.33.100:3000\n"
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.1-ec2/",
+	"title": "IaC",
+	"tags": [],
+	"description": "",
+	"content": "In this Workshop we will create an EC2 instances with the information bellow\nOverview AWS EC2 Instances name: Web-Server VPC: 10.0.0.0/16 Subnets: 10.0.1.0/24 Region: Singapore (ap-southeast-1) Available zone: ap-southeast-1b Instance type: t2.micro Amazon Machine Images: Amazon Linux 2 AMI Key pair: tf-cli-keypair Security setting: Only allow my ip connect SSH to EC2 instance Allow all access from port 8080 to EC2 instance Terraform configuration Security credential variables: variables.tf\nvariable \u0026#34;access_key\u0026#34; {\rtype = string\rsensitive = true\r}\rvariable \u0026#34;secret_key\u0026#34; {\rtype = string\rsensitive = true\r}\rvariable \u0026#34;region\u0026#34; {\rtype = string\rdefault = \u0026#34;ap-southeast-1\u0026#34;\r} Instances configurations :main.tf\nvariable vpc_cidr_block {}\rvariable subnet_1_cidr_block {}\rvariable avail_zone {}\rvariable env_prefix {}\rvariable instance_type {}\rvariable my_ip {}\rvariable ami_id {}\rresource \u0026#34;aws_vpc\u0026#34; \u0026#34;myapp-vpc\u0026#34; {\rcidr_block = var.vpc_cidr_block\rtags = {\rName = \u0026#34;${var.env_prefix}-vpc\u0026#34;\r}\r}\rresource \u0026#34;aws_subnet\u0026#34; \u0026#34;myapp-subnet-1\u0026#34; {\rvpc_id = aws_vpc.myapp-vpc.id\rcidr_block = var.subnet_1_cidr_block\ravailability_zone = var.avail_zone\rtags = {\rName = \u0026#34;${var.env_prefix}-subnet-1\u0026#34;\r}\r}\rresource \u0026#34;aws_security_group\u0026#34; \u0026#34;myapp-sg\u0026#34; {\rname = \u0026#34;myapp-sg\u0026#34;\rvpc_id = aws_vpc.myapp-vpc.id\ringress {\rfrom_port = 22\rto_port = 22\rprotocol = \u0026#34;tcp\u0026#34;\rcidr_blocks = [\u0026#34;0.0.0.0/0\u0026#34;]\r}\ringress {\rfrom_port = 8080\rto_port = 8080\rprotocol = \u0026#34;tcp\u0026#34;\rcidr_blocks = [\u0026#34;0.0.0.0/0\u0026#34;]\r}\regress {\rfrom_port = 0\rto_port = 0\rprotocol = \u0026#34;-1\u0026#34;\rcidr_blocks = [\u0026#34;0.0.0.0/0\u0026#34;]\rprefix_list_ids = []\r}\rtags = {\rName = \u0026#34;${var.env_prefix}-sg\u0026#34;\r}\r}\rresource \u0026#34;aws_internet_gateway\u0026#34; \u0026#34;myapp-igw\u0026#34; {\rvpc_id = aws_vpc.myapp-vpc.id\rtags = {\rName = \u0026#34;${var.env_prefix}-internet-gateway\u0026#34;\r}\r}\rresource \u0026#34;aws_route_table\u0026#34; \u0026#34;myapp-route-table\u0026#34; {\rvpc_id = aws_vpc.myapp-vpc.id\rroute {\rcidr_block = \u0026#34;0.0.0.0/0\u0026#34;\rgateway_id = aws_internet_gateway.myapp-igw.id\r}\r# default route, mapping VPC CIDR block to \u0026#34;local\u0026#34;, created implicitly and cannot be specified.\rtags = {\rName = \u0026#34;${var.env_prefix}-route-table\u0026#34;\r}\r}\r# Associate subnet with Route Table\rresource \u0026#34;aws_route_table_association\u0026#34; \u0026#34;a-rtb-subnet\u0026#34; {\rsubnet_id = aws_subnet.myapp-subnet-1.id\rroute_table_id = aws_route_table.myapp-route-table.id\r}\routput \u0026#34;server-ip\u0026#34; {\rvalue = aws_instance.myapp-server.public_ip\r}\rresource \u0026#34;aws_instance\u0026#34; \u0026#34;myapp-server\u0026#34; {\rami = var.ami_id\rinstance_type = var.instance_type\rkey_name = \u0026#34;tf-cli-keypair\u0026#34;\rassociate_public_ip_address = true\rsubnet_id = aws_subnet.myapp-subnet-1.id\rvpc_security_group_ids = [aws_security_group.myapp-sg.id]\ravailability_zone\t= var.avail_zone\rtags = {\rName = \u0026#34;${var.env_prefix}-server\u0026#34;\r}\r} Terraform provider AWS : terraform.tfvars\n# Network and Instance variables\rvpc_cidr_block = \u0026#34;10.0.0.0/16\u0026#34;\rsubnet_1_cidr_block = \u0026#34;10.0.1.0/24\u0026#34;\ravail_zone = \u0026#34;ap-southeast-1b\u0026#34;\renv_prefix = \u0026#34;web\u0026#34;\rmy_ip = \u0026#34;\u0026lt;myip\u0026gt;/32\u0026#34;\rami_id = \u0026#34;ami-04f73ca9a4310089f\u0026#34; Installation Terraform plan:\ndocker-compose run –rm terraform plan Terraform apply:\ndocker-compose run --rm terraform apply --auto-approve AWS Instance checking: Add Keypair permission:\nchmod 400 tf-cli-keypair.pem SSH to EC2 Instances:\nssh -i tf-cli-keypair.pem ec2-user@13.250.64.49 AWS Instance checking: "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/1-intro/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "DevOps Projects Overview Continuous Integration and Continuous Deployment (CI/CD) is a cornerstone of DevOps methodology, emphasizing automation and collaboration throughout the software development lifecycle.\nContinuous Integration (CI): Developers regularly push code changes to a shared repository. Automated tests are run against the newly integrated code to ensure it doesn\u0026rsquo;t break existing functionality. If tests fail, developers are notified immediately, and they can address issues before they become larger problems. Continuous Deployment (CD): Once code changes pass the CI phase, they\u0026rsquo;re automatically deployed to production or staging environments. This process reduces manual intervention and ensures that new features or bug fixes reach users as quickly as possible. Content Introduction Prepairation Configure Cleanup "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/",
+	"title": "Workflow",
+	"tags": [],
+	"description": "",
+	"content": "Gitlab-Server Repo: shoeshop\nNew branch:\nBranch name: develop -\u0026gt; Create from: main Branch name: feature/frontend/login -\u0026gt; Create from: develop Branch name: feature/backend/login -\u0026gt; Create from: develop Set permission approve : http://gitlab.local.test/shoeshop/shoeshop/-/settings/repository\nProtected branches :\nBranch: Allowed to merge develop\t- Maintainers - Maintainers main\t- Maintainers\t- No one Default branch : develop (for Developer Teams)\nNew branch:\nBranch name: staging -\u0026gt; Create from: develop Protected branches : Branch: Allowed to merge staging\t- Maintainers - Maintainers Permission testing Edit repo: http://gitlab.local.test/shoeshop/shoeshop/-/new/develop/ User: tuanta New file: config.txt Commit: config(database): modify connection Target branch: develop -\u0026gt; OK Edit repo: http://gitlab.local.test/shoeshop/shoeshop/-/new/main/ User: tuanta New file: config.txt Commit: config(database): modify connection ISSUE: -\u0026gt; You are not allowed to push into this branch "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.3-monitor/3.3.3.1-zabbix/",
+	"title": "Zabbix",
+	"tags": [],
+	"description": "",
+	"content": "Overview Zabbix is an open-source monitoring software tool designed to track the status of various network services, servers, and other network hardware. It provides real-time monitoring, alerting, and visualization of metrics such as CPU load, network utilization, disk space, and more. Configuration Zabbix Server Configuration: collects and processes data Install Repo wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4-1+ubuntu20.04_all.deb dpkg -i zabbix-release_6.4-1+ubuntu20.04_all.deb apt update -y Install Zabbix server, frontend, agent apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent -y Create initial database apt install software-properties-common -y apt update -y apt install -y mariadb-server-10.6 mariadb-client-10.6 mariadb-common systemctl start mariadb systemctl status mariadb Configuration Database : mysql -u root create database zabbix character set utf8mb4 collate utf8mb4_bin; create user zabbix@localhost identified by \u0026#39;password\u0026#39;; grant all privileges on zabbix.* to zabbix@localhost; set global log_bin_trust_function_creators = 1; quit; cat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix mysql -u root set global log_bin_trust_function_creators = 0; exit Configure the db for Zabbix server vi /etc/zabbix/zabbix_server.conf DBPassword=password Start Zabbix server and agent processes systemctl restart zabbix-server zabbix-agent apache2 systemctl enable zabbix-server zabbix-agent apache2 Zabbix Agent Configuration: run on the monitored devices and send data to the server\nInstallation wget https://repo.zabbix.com/zabbix/6.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.4-1+ubuntu20.04_all.deb dpkg -i zabbix-release_6.4-1+ubuntu20.04_all.deb apt update -y apt install zabbix-agent Configuration : vi /etc/zabbix/zabbix_agentd.conf Server=\u0026lt;zabbix dns\u0026gt; ServerActive=\u0026lt;zabbix dns\u0026gt; Hostname=\u0026lt;zabbix server ip\u0026gt; systemctl restart zabbix-agent Add Host to Zabbix Server\nLogin Add Host Host - Create host Host name:\t\u0026lt;Agent + IP\u0026gt; Templates:\tLinux by Zabbix agent Host groups: Linux servers Interfaces: Agent - IP: \u0026lt;Agent IP\u0026gt; -\u0026gt; Add Create Item \u0026amp; Trigger\nItem: Name:\tApp service on server \u0026lt;Host Agent IP\u0026gt;. running on port 8080 is unavaiilable\tType:\tZabbix agent\tKey:\tnet.tcp.listen[8080]\t-\u0026gt; Select\tnet.tcp.listen[port] Type of information:\tNumeric (unsigned)\tHost interface:\t\u0026lt;agent IP\u0026gt; :10050\tUpdate interval\t10s\t-\u0026gt; TEST -\u0026gt; OK Trigger: Name:\tApp service on server 192.168.1.110. running on port 8080 is unavaiilable Severity:\tHigh Expresstion:\tItem: App service on server \u0026lt;Host Agent IP\u0026gt;. running on port 8080 is unavaiilable Result = 0 -\u0026gt; Add Dashboard Overview:\nHiKVision APIs for Monitoring: Overview: Monitoring Hikvision devices using Zabbix involves leveraging Zabbix\u0026rsquo;s capabilities to communicate with Hikvision APIs. "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.1-jenkins/3.3.1.2-advanced/",
+	"title": "Advanced",
+	"tags": [],
+	"description": "",
+	"content": "Jenkins advanced is processing \u0026hellip;.\n"
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/2-prepair/2.2-aws/",
+	"title": "AWS",
+	"tags": [],
+	"description": "",
+	"content": "Amazon Web Services (AWS) is a comprehensive and widely used cloud computing platform provided by Amazon. It offers a vast array of services, allowing individuals and businesses to build and deploy scalable applications and services without the need to invest in physical infrastructure\nOverview AWS CLI : The AWS Command Line Interface (CLI) is a powerful tool provided by Amazon Web Services (AWS) that allows you to interact with AWS services directly from your command line or terminal It provides a convenient and scriptable way to manage your AWS resources without needing to use the AWS Management Console Configuration Prepair and run docker compose file\ndocker-compose run --rm aws --version AWS: Create keypair to access AWS Instances: tf-cli-keypair.pem\ndocker-compose run --rm aws ec2 create-key-pair --key-name tf-cli-keypair --query \u0026#39;KeyMaterial\u0026#39; --output text \u0026gt; tf-cli-keypair.pem Create AWS Account for Terraform use AWS CLI: tf-cli\ndocker-compose run --rm aws iam create-user --user-name tf-cli AWS Checking keypair: Create Access Key \u0026amp; export to local\ndocker-compose run --rm aws iam create-access-key --user-name tf-cli \u0026gt; tf_cli-access_key.json Create policy and configure to allow access EC2 and Limit Region\nCreate a custom policy file: ec2-limited-access-policy.json {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;ec2:*\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34;,\r\u0026#34;Condition\u0026#34;: {\r\u0026#34;StringEquals\u0026#34;: {\r\u0026#34;ec2:Region\u0026#34;: \u0026#34;ap-southeast-1\u0026#34;\r}\r}\r}\r]\r} Create a IAM policy: EC2FullAccessAPSouthEast1 docker-compose run --rm aws iam create-policy --policy-name EC2FullAccessAPSouthEast1 --policy-document file://ec2-limited-access-policy.json Attach the Policy to the IAM User: (tf-cli) docker-compose run --rm aws iam attach-user-policy --user-name tf-cli --policy-arn arn:aws:iam::637423373411:policy/EC2FullAccessAPSouthEast1 AWS Checking User: "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/",
+	"title": "Backend",
+	"tags": [],
+	"description": "",
+	"content": "Project workflow Tools Edit \u0026amp; configure files Install \u0026amp; configure Database Build Run Check status Configuration Source: shoeshop-ecommerce.zip\nUser: shoeshop\nJava project folder: /projects/shoeshop\nRequires tools: https://spring.io/guides/gs/maven Java:\nMaven: defined with an XML file named pom.xml\napt install openjdk-17-jdk openjdk-17-jre\rapt install maven\rjava -version\rmnv -v apt install mariadb-server\rnetstart -tlpun Configure Folder and User permisson:\nadduser shoeshop\rchown -R shoeshop. /projects/shoeshop/\rchmod -R 750 /projects/shoeshop/ Mariadb :\nsystemctl stop mariadb nano /etc/mysql/mariadb.conf.d/50-server.conf\nbin-address = 0.0.0.0 systemctl restart mariadb mysq -u root\nshow databases;\rcreate database shoeshop;\rcreate user \u0026#39;shoeshop\u0026#39;@%\u0026#39;identified by \u0026#39;shoeshop\u0026#39;;\rgrant all privileges on shoeshop.* to \u0026#39;shoeshop\u0026#39;@\u0026#39;%\u0026#39;;\rflush privileges;\rexit mysq -h 192.168.33.110 -P 3306 -u shoeshop\nshow databases;\ruse shoeshop;\rshow tables;\rsource /projects/shoeshop/shoeshopdb.sql\rshow tables;\rexit vi /src/main/resources/application.properties\nspring.datasource.url=jdbc:mysql://192.168.33.110:3306/shoeshop\rspring.datasource.username=shoeshop\rspring.datasource.password=shoeshop mvn install -DskipTest=true\nls target/\njava -jar target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar nohup java -jar target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar 2\u0026gt;\u0026amp;1 \u0026amp; tail -f nohup.out\nCheck: http://192.168.33.110:8080 "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.2-cicd/",
+	"title": "CICD",
+	"tags": [],
+	"description": "",
+	"content": "Updating \u0026hellip;.\n"
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/2-prepair/",
+	"title": "Prepairation",
+	"tags": [],
+	"description": "",
+	"content": "Diagram Workshop-0001 In this lab, we will be automate deploy a Server in AWS Cloud with tools: AWS CLI, Docker Compose, Terraform. Following this link Workshop-0002 CICD is processing \u0026hellip; Following this link Contents Docker AWS Teraform Git Local "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.3-monitor/3.3.3.2-prometheus/",
+	"title": "Prometheus",
+	"tags": [],
+	"description": "",
+	"content": "Overview Prometheus is an open-source monitoring and alerting toolkit originally built at SoundCloud. It provides a robust monitoring and alerting solution for modern, cloud-native environments, enabling developers and operators to gain insights into the performance and health of their systems.\nConfiguration "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.2-gitlab/3.3.2.2-runner/",
+	"title": "Runner",
+	"tags": [],
+	"description": "",
+	"content": "GitLab Runner is a lightweight agent that runs jobs defined in your GitLab CI/CD pipelines. It works by listening for jobs that need to be executed and then runs them in a specified environment.\nLab-Server Install sudo apt-get update\rcurl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash\rsudo apt install gitlab-runner\rgitlab-runner -v Edit hostname: vi /etc/hosts gitlab.local.test \u0026lt;ip\u0026gt; Configuration: gitlab-runner register Enter the GitLab instance: http://gitlab.local.test/\rEnter the registration token:\rEnter a description for the runner: lab-server\rEnter tags for the runner: lab-server\rEnter optional maintenance note for the runner: \u0026lt;enter\u0026gt;\rexecutor: shell vi /etc/gitlab-runner/config.toml\nconcurrent = 4 -\u0026gt; use 4 robot runner Start Runner nohup gitlab-runner run --working-directory /home/gitlab-runner/ --config /etc/gitlab-runner/config.toml --service gitlab-runner --user gitlab-runner 2\u0026gt;\u0026amp;1 \u0026amp;\rps -ef | grep gitlab-runner Gitlab-Server CICD Settings: http://gitlab.local.test/shoeshop/shoeshop/-/settings/ci_cd\nEdit: http://gitlab.local.test/shoeshop/shoeshop/-/runners/2/edit Uncheck : When a runner is locked \u0026hellip;. Branch: develop - Allowed to push: Maintainers Create CICD file: .gitlab-ci.yml \u0026amp; Commit: Configure(pipeline): add runner\nstages:\r- build\r- deploy\r- checking\rbuild:\rstage: build\rscript:\r- whoami\r- pwd\r- ls\rtags:\r- jenkins-server Checking Gitlab-Server:\nJobs Lab-Server:\nFolder: -\u0026gt; /home/gitlab-runner/builds/1fijYgCS/0/shoeshop/shoeshop "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.2-gitlab/3.3.2.3-cicd/",
+	"title": "CICD",
+	"tags": [],
+	"description": "",
+	"content": "Updating \u0026hellip;.\n"
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/",
+	"title": "Configuration",
+	"tags": [],
+	"description": "",
+	"content": " The Projects for the workshop \u0026hellip;.. Content IaC CICD Labs "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.3-monitor/3.3.3.3-grafana/",
+	"title": "Grafana",
+	"tags": [],
+	"description": "",
+	"content": "Overview Grafana is an open-source analytics and monitoring platform designed to help you visualize and understand your metrics. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored.\nConfiguration "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.1-jenkins/",
+	"title": "Jenkins",
+	"tags": [],
+	"description": "",
+	"content": "Overview Jenkins is an open-source automation server that is widely used for automating software development processes such as building, testing, and deploying applications. It allows developers to automate repetitive tasks associated with the software development lifecycle, thereby saving time and reducing errors.\nJenkins Server Installation Login vagrant ssh machine2 Install Jenkins server in Linux Login Jenkins-Server\nInstallation :\nvi jenkins-install.sh\n#!/bin/bash apt install openjdk-11-jdk -y java --version wget -p -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - sh -c \u0026#39;echo deb http://pkg.jenkins.io/debian-stable binary/ \u0026gt; /etc/apt/sources.list.d/jenkins.list\u0026#39; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5BA31D57EF5975CA apt-get update apt install jenkins -y systemctl start jenkins systemctl enable jenkins ufw allow 8080 chmod +x jenkins-install.sh\rsh jenkins-install.sh\rsystemctl status jenkins\rInstall Jenkins server running in docker container Prepair sudo -i\rapt update\rmkdir /tools\rcd /tools\rmkdir docker\rcd docker\rvi install-docker.sh File content: install-docker.sh\n#!/bin/bash sudo apt update sudo apt install -y apt-transport-https ca-certificates curl software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg echo \u0026#34;deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\u0026#34; | sudo tee /etc/apt/sources.list.d/docker.list \u0026gt; /dev/null sudo apt update sudo apt install -y docker-ce sudo systemctl start docker sudo systemctl enable docker sudo curl -L \u0026#34;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)\u0026#34; -o /usr/local/bin/docker-compose sudo chmod +x /usr/local/bin/docker-compose docker --version docker-compose --version Install chmod +x install-docker.sh\rsh install-docker.sh Create Docker compose file mkdir /tools/jenkins\rcd /tools/jenkins\rvi docker-compose.yml version: \u0026#39;3\u0026#39; services: # Jenkins jenkins: container_name: jenkins image: jenkins/jenkins ports: - \u0026#34;8080:8080\u0026#34; volumes: - jenkins_home:/var/jenkins_home volumes: jenkins_home: Run Jenkins Server docker-compose up jenkins -d Configuration Jenkins Server: Login: http://192.168.33.110:8080 Configuration ## Admin password: docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword Overview Content Jenkins CICD Advanced "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/",
+	"title": "Labs",
+	"tags": [],
+	"description": "",
+	"content": "Devops projects are processing \u0026hellip;.\nContent Jenkins GitLab Monitoring Security "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/2-prepair/2.3-terraform/",
+	"title": "Terraform",
+	"tags": [],
+	"description": "",
+	"content": "Terraform is a open-source tool used to build, modify, and version control infratrucrure\nOverview Provider(provider.tf): Enables Terrafrom to interact with cloud providers and other APIs Terraform (versions.tf): Sets version constaints for Terraform and optionally maps provides to a source address and version constaint Variables (variable.tf): Input variables define reusable values and work like function arguments in general-purpose programming languages Resource (main.tf): Resource blocks describe infrastructure objects like VPCs, subnets, route tables, and gateways Data : Data sources allow Terraform to ultilize information form resources that were defined outside of Terraform (or defined a different Terraform configuration) Output: Outputs return structured data form your configuration and work like return values in generaral-purpose programming languages Terraform.tfvars: To set lots of variables, it is more convenient to specify their values in a variable definitions file Command terraform init [options]: command initializes a working directory containing Terraform configuration files. terraform plan [options]: command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure. terraform apply [options] [plan file]: command executes the actions proposed in a Terraform plan terraform destroy [options]: command is a convenient way to destroy all remote objects managed by a particular Terraform configuration. Run Terraform in containter: Run docker compose:\ndocker-compose run --rm terraform version Run configure:\nProvider (AWS): versions.tf\nterraform {\rrequired_providers {\raws = {\rsource = \u0026#34;hashicorp/aws\u0026#34;\rversion = \u0026#34;~\u0026gt; 4.16\u0026#34;\r}\r}\rrequired_version = \u0026#34;\u0026gt;= 1.2.0\u0026#34;\r} Security credential variables: variables.tf\nvariable \u0026#34;access_key\u0026#34; {\rtype = string\rsensitive = true\r}\rvariable \u0026#34;secret_key\u0026#34; {\rtype = string\rsensitive = true\r}\rvariable \u0026#34;region\u0026#34; {\rtype = string\rdefault = \u0026#34;ap-southeast-1\u0026#34;\r} Terraform init:\ndocker-compose run --rm terraform init "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/",
+	"title": "ELK Stack",
+	"tags": [],
+	"description": "",
+	"content": "Overview The ELK Stack stands for Elasticsearch, Logstash, and Kibana, which is a powerful set of open-source tools commonly used for log management and analytics. Elasticsearch: This is a distributed, RESTful search and analytics engine designed for horizontal scalability, reliability, and real-time search capabilities. It\u0026rsquo;s providing storage and indexing functionality for logs and other data. It\u0026rsquo;s highly efficient for searching and analyzing large volumes of data in near real-time. Logstash: Logstash is a data processing pipeline that ingests, transforms, and enriches data before it\u0026rsquo;s indexed into Elasticsearch. It supports a wide range of input sources, including logs, metrics, events, and other structured or unstructured data formats. Logstash can perform various operations on the data, such as parsing, filtering, and formatting, to make it suitable for analysis. Kibana: Kibana is the visualization and user interface component of the ELK Stack. It provides a web interface for users to visualize and explore data stored in Elasticsearch.Kibana offers various visualization options, including charts, graphs, maps, and dashboards, allowing users to create custom visualizations and dashboards to gain insights from their data Configuration Firewall pfSense and ELK Stack Review:\npfelk is a highly customizable open-source tool for ingesting and visualizing your firewall traffic with the full power of Elasticsearch, Logstash and Kibana. Git repo reference: https://github.com/pfelk/pfelk. Use Docker: https://github.com/pfelk/pfelk/blob/main/install/docker.md Logs Sever repair:\nDisabling Swap sudo swapoff -a sudo sed -i \u0026#39;/ swap / s/^\\(.*\\)$/#\\1/g\u0026#39; /etc/fstab Configuration Date/Time Zone sudo timedatectl set-timezone Asia/Ho_Chi_Minh Configure Memory sudo sysctl -w vm.max_map_count=262144 sysctl vm.max_map_count Download and Install Docker - Docker Compose apt-get install docker apt -y install docker.io sudo apt-get install docker-compose Download Repo : https://github.com/pfelk/pfelk Configuration\nEdit credentials .env ELASTIC_PASSWORD=changeme KIBANA_PASSWORD=changeme LOGSTASH_PASSWORD=changeme LICENSE=basic Edit logstash configure: etc/logstash/config/logstash.yml Run docker compose: docker-compose up -d Settings:\nLog-Server: Import Template : https://github.com/pfelk/pfelk/tree/main/etc/pfelk/templates pfelk-mappings-ecs pfelk-ilm pfelk Options: pfelk-dhcp; pfelk-nginx Import Dashboard : https://github.com/pfelk/pfelk/tree/main/etc/pfelk/dashboard 22.04-firewall.ndjson Options: 22.01-unbound.ndjson; 22.01-captive.ndjson; v20.2-dhcp.ndjson Firewall-Configure: sent log to log server\nStatus \u0026gt; System Logs \u0026gt; Settings Dashboard view: Documents: https://docs.google.com/spreadsheets/d/1zewwK5ikojziCHTMt8bzRvbOV1ewgV-UjozBhae1-Lw/edit#gid=274683191\n"
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/2-prepair/2.4-git/",
+	"title": "Git",
+	"tags": [],
+	"description": "",
+	"content": "Git is a distributed version control system (DVCS) that helps developers track changes to source code during software development. It allows multiple developers to collaborate on projects simultaneously.\nOverview Github GitHub is a web-based platform built on top of Git, the distributed version control system. It offers a variety of features to help developers collaborate on software projects GitHub provides a platform for hosting Git repositories. Developers can create new repositories to store their code, either publicly (visible to everyone) or privately (accessible only to authorized collaborators) Configuration Create Github Repository and Access\nCreate a public repo: https://github.com/nonotnonez/ws-0001\nCreate Github Access Key : https://github.com/settings/tokens\nName: github_token_ws Expiration:\t90 days Select scopes: repo workflow Clone Source form Github: git clone https://**token**@github.com/NoNotNonez/ws-0001.git\nCopy Source code to Github Repo:\ncd /ws-0001/terraform Create .gitignore:\nto security and prevent important file upload to github Push Source code to Git Repo:\ngit status git add . git commit -m \u0026ldquo;Add Tf source\u0026rdquo; git push "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.2-gitlab/",
+	"title": "Gitlabs",
+	"tags": [],
+	"description": "",
+	"content": "Overview GitLab is a web-based DevOps lifecycle tool that provides a Git repository manager providing wiki, issue-tracking, and CI/CD pipeline features, using an open-source license. It offers functionalities similar to GitHub but with additional features focused on the entire DevOps lifecycle.\nConfiguration Installation curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash\rsudo apt-get install gitlab-ee=14.4.1-ee.0 Hostname:\nvi /etc/hosts 192.168.33.110 gitlab.local.test vi /etc/gitlab/gitlab.rb external_url \u0026#39;http://gitlab.local.test\u0026#39;\rgitlab-ctl reconfigure 2.Login : http://gitlab.local.test\nUser: root - Password: cat /etc/gitlab/initial_root_password\nView settings:\nUncheck: Siginup enabled \u0026amp; Required admin \u0026hellip; Setting - CI/CD - Continuos Integration and Deployment - Expand : Uncheck: Default to Auto DevOps Change password root user:\nUser: root - Edit Profiles - Password Create User:\nMenu - Admin New User: tuanta Access level: admin New User: dev1 Access level: regular Project process: Gitlab-Server: Menu - Group - Create Group - Create Group\nGroup name: shoeshop Private Role: Devops Engineer New project:\nProject name: shoeshop Uncheck: Initialize repository with a README Invited members: tuanta: maintainer dev1: develop Git configure: lab-server: 192.168.33.110\nLab-Server Folder: mkdir /data\ncd /data\nGit config:\ngit config \u0026ndash;global user.name \u0026ldquo;tuanta\u0026rdquo; git config \u0026ndash;global user.email \u0026ldquo;tuanta@gitlocal.test\u0026rdquo; Clone source: git clone http://gitlab.local.test/shoeshop/shoeshop.git\nEnter user/passsword: tuanta Copy Source Code and Add permission to user\ncp -rf shoeshop/* /data/shoeshop/ cd /data/shoeshop Upload to repo:\ngit status git checkout -b main git add . git commit -m \u0026ldquo;feat(project): create base projects\u0026rdquo; git push -f origin git push \u0026ndash;set-upstream origin main Enter user/password: tuanta CICD Apply Gitlab-server\nEdit README.md Commit: doc(sys desc): change system title Lab-server\nGit pull d- Enter user/password: tuanta Content Workflow Runner CICD "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/4-cleanup/4.1-ec2/",
+	"title": "IaC",
+	"tags": [],
+	"description": "",
+	"content": "Clean up resources We will process to clearn up all the resources\nTerraform: Run docker compose:\ndocker-compose run --rm terraform destroy --auto-approve AWS Checking "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/4-cleanup/",
+	"title": "Resource Cleanup",
+	"tags": [],
+	"description": "",
+	"content": "Clean up resources All processing to clearn up all the resources\nContent IAC CICD "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/4-cleanup/4.2-jenkins/",
+	"title": "CICD",
+	"tags": [],
+	"description": "",
+	"content": "We are processing \u0026hellip;.\n"
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/2-prepair/2.5-local/",
+	"title": "Local",
+	"tags": [],
+	"description": "",
+	"content": "Overview We will use local environment with Vagrant and VirtualBox to test best practices.\nVagrant Vagrant is an open-source tool for building and managing virtualized development environments. It helps developers create and configure reproducible and portable development environments that closely mimic production setups. Virtualbox VirtualBox is a powerful open-source virtualization software developed by Oracle Corporation. It allows users to run multiple guest operating systems (OS) simultaneously on a single physical machine. Configuration Requirement\nMachine 1: Linux-server IP: 192.168.33.100 Memory: 2048 Mb Machine 2: Jenkins-server IP: 192.168.33.110 Memory: 5120 Mb Machine 3: Monitor-server IP: 192.168.33.120 Memory: 2048 Mb Vagrantfile\n# -*- mode: ruby -*-\r# vi: set ft=ruby :\rVagrant.configure(\u0026#34;2\u0026#34;) do |config|\rconfig.vm.box = \u0026#34;ubuntu/focal64\u0026#34;\r# Configuration for the first virtual machine\rconfig.vm.define \u0026#34;machine1\u0026#34; do |machine1|\rmachine1.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.100\u0026#34;\rmachine1.vm.hostname = \u0026#34;linux-server\u0026#34;\rmachine1.vm.provider \u0026#34;virtualbox\u0026#34; do |vb|\rvb.memory = \u0026#34;2048\u0026#34;\rend\rmachine1.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34; end\r# Configuration for the second virtual machine\rconfig.vm.define \u0026#34;machine2\u0026#34; do |machine2|\rmachine2.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.110\u0026#34;\rmachine2.vm.hostname = \u0026#34;jenkins-server\u0026#34;\rmachine2.vm.provider \u0026#34;virtualbox\u0026#34; do |vb|\rvb.memory = \u0026#34;5120\u0026#34;\rend\rmachine2.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34;\rend\r# Configuration for the third virtual machine\rconfig.vm.define \u0026#34;machine3\u0026#34; do |machine3|\rmachine3.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.120\u0026#34;\rmachine3.vm.hostname = \u0026#34;monitor-server\u0026#34;\rmachine3.vm.provider \u0026#34;virtualbox\u0026#34; do |vb|\rvb.memory = \u0026#34;2048\u0026#34;\rend\rmachine3.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34; machine3.vm.provision \u0026#34;shell\u0026#34;, inline: \u0026lt;\u0026lt;-SHELL\rapt-get update\rSHELL\rend\rend Installation\nvagrant up vagrant status vagrant ssh vagrant halt "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.3-monitor/",
+	"title": "Monitoring",
+	"tags": [],
+	"description": "",
+	"content": "Monitoring is processing \u0026hellip;.\nContent Zabbix Prometheus Grafana ELK Stack "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.4-security/",
+	"title": "Security",
+	"tags": [],
+	"description": "",
+	"content": "Security is processing \u0026hellip;.\nContent Firewall "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/3-config/3.3-labs/3.3.5-linux/",
+	"title": "Linux",
+	"tags": [],
+	"description": "",
+	"content": "Project:\nFrontend: Vuejs Backend: Shoeshop Source:\nshoeshop-ecommerce.zip\rtodolist.zip\rvision.zip vi /etc/hosts\nmachine1\tlab-server\t192.168.33.100 lab.local.test\rmachine2\tgitlab-server\t192.168.33.110 gitlab.local.test\rmachine3\tmonitor-server\t192.168.33.120 monitor.local.test User \u0026amp; Working folder:\n/projects adduser todolist\rchown -R todolist:todolist /projects/todolist\rchmod -R 750 /projects/todolist Project process :\n1- Tools 2- Configuration files 3- Steps: build \u0026amp; run .\nSecurity: separate folder and user for each project\nContent Frontend Backend "
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://localhost:1313/cicd-ws/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
