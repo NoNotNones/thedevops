@@ -26,7 +26,7 @@ Check the installed software
 ```dockercompose
  docker-compose --version 
 ```
-![22](/cicd-ws/images/2-prepair/2.1-docker/4.png)
+![22](/thedevops/images/2-prepair/2.1-docker/4.png)
 
 Create a docker compose file to run the software on the container environment
 -  **docker-compose.yml**

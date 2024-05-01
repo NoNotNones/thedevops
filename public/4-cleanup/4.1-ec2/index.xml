@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IaC on </title>
-    <link>http://localhost:1313/cicd-ws/4-cleanup/4.1-ec2/</link>
+    <link>https://nonotnonez.github.io/thedevops/4-cleanup/4.1-ec2/</link>
     <description>Recent content in IaC on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/cicd-ws/4-cleanup/4.1-ec2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nonotnonez.github.io/thedevops/4-cleanup/4.1-ec2/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -17,12 +17,12 @@ In this workshop, we will focus in some of DevOps tools:
     - Infrastructure as Code (IaC): Terraform
     - Monitoring and Logging Tools: Prometheus, Zabbix, Grafana, ELK Stack
     
-![1](/cicd-ws/images/1/tools.jpg?featherlight=false&width=90pc)
+![1](/thedevops/images/1/tools.jpg?featherlight=false&width=90pc)
 
 
 #### Content
 
-1. [Introduction](/cicd-ws/1-intro/)
-2. [Prepairation](/cicd-ws/2-prepair/)
-3. [Configuration](/cicd-ws/3-config)
-4. [Cleanup](/cicd-ws/4-cleanup/)
+1. [Introduction](/thedevops/1-intro/)
+2. [Prepairation](/thedevops/2-prepair/)
+3. [Configuration](/thedevops/3-config)
+4. [Cleanup](/thedevops/4-cleanup/)
