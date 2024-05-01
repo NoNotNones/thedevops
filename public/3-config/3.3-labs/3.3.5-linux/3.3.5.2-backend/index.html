@@ -12,21 +12,21 @@
     <title>Backend :: </title>
 
     
-    <link href="/thedevops/css/nucleus.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/fontawesome-all.min.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/hybrid.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/featherlight.min.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/perfect-scrollbar.min.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/auto-complete.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/theme.css?1714531837" rel="stylesheet">
-    <link href="/thedevops/css/hugo-theme.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/nucleus.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714539468" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714539468" rel="stylesheet">
     
-    <link href="/thedevops/css/theme-workshop.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/theme-workshop.css?1714539468" rel="stylesheet">
     
     
 
-    <script src="/thedevops/js/jquery-3.3.1.min.js?1714531837"></script>
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714539468"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714531837"></script>
-<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714531837"></script>
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714539468"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714539468"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/thedevops\/";
     
 </script>
-<script type="text/javascript" src="/thedevops/js/search.js?1714531837"></script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714539468"></script>
 
     
   </div>
@@ -1228,22 +1228,66 @@ chmod -R 750 /projects/shoeshop/
 <pre tabindex="0"><code>apt install openjdk-17-jdk openjdk-17-jre
 apt install maven
 java -version
-mnv -v
-</code></pre><pre tabindex="0"><code>apt install mariadb-server
-netstart -tlpun
-</code></pre><p>Configuring Database Spring boot: Mariadb</p>
+mvn -v
+</code></pre><p>Configuring Database Spring boot: <a href="https://www.baeldung.com/spring-boot-configure-data-source-programmatic">https://www.baeldung.com/spring-boot-configure-data-source-programmatic</a></p>
+<ul>
+<li>DataSource: <strong>application.properties</strong></li>
+</ul>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/3.png?featherlight=false&width=90pc"></p>
+<ul>
+<li>Install Database: <strong>MariaDB</strong></li>
+</ul>
+<pre tabindex="0"><code>apt install mariadb-server
+netstat -tlpun
+</code></pre><p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/4.png?featherlight=false&width=90pc"></p>
+
+<div class="notices note" ><p>Database should install in difference Server</p>
+</div>
+
+<ul>
+<li>Configure DB:</li>
+</ul>
 <pre tabindex="0"><code>systemctl stop mariadb
-</code></pre><p>nano /etc/mysql/mariadb.conf.d/50-server.conf</p>
+ls /etc/mysql/
+</code></pre><p>nano /etc/mysql/mariadb.conf.d/50-server.cnf</p>
 <pre tabindex="0"><code>bin-address = 0.0.0.0
 </code></pre><pre tabindex="0"><code>systemctl restart mariadb
-</code></pre><p>mysq -u root</p>
+netstat -tlpun
+</code></pre><p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/6.png?featherlight=false&width=90pc"></p>
+<ul>
+<li>Create Database: import shoe_shopdb.sql to MariaDB</li>
+</ul>
+<p>mysql -u root</p>
+<ul>
+<li>show databases: <strong>show databases;</strong></li>
+</ul>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/7.png?featherlight=false&width=90pc"></p>
+<ul>
+<li>Create datatabse: <strong>Database</strong> and <strong>User</strong>
+<ul>
+<li><strong>user</strong>: shoeshop</li>
+<li><strong>@%</strong>: can access all server</li>
+<li><strong>identified</strong>: password</li>
+<li><strong>grant</strong>: permission for <strong>shoeshop</strong> apply to all resource</li>
+<li><strong>flush privileges</strong>: save changes</li>
+</ul>
+</li>
+</ul>
 <pre tabindex="0"><code>show databases;
 create database shoeshop;
 create user &#39;shoeshop&#39;@%&#39;identified by &#39;shoeshop&#39;;
-grant all privileges on shoeshop.* to &#39;shoeshop&#39;@&#39;%&#39;;
+grant all privileges on shoeshop.* to  &#39;shoeshop&#39;@&#39;%&#39;;
 flush privileges;
 exit
-</code></pre><p>mysq -h 192.168.33.110 -P 3306 -u shoeshop</p>
+</code></pre><ul>
+<li>Login user <strong>shoeshop</strong>: mysql -h 192.168.33.110 -P 3306 -u shoeshop
+<ul>
+<li><strong>h</strong>: host</li>
+<li><strong>p</strong>: port</li>
+<li><strong>u</strong>: user</li>
+</ul>
+</li>
+</ul>
 <pre tabindex="0"><code>show databases;
 use shoeshop;
 show tables;
@@ -1852,19 +1896,19 @@ spring.datasource.password=shoeshop
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/thedevops/js/clipboard.min.js?1714531837"></script>
-    <script src="/thedevops/js/perfect-scrollbar.min.js?1714531837"></script>
-    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714531837"></script>
-    <script src="/thedevops/js/jquery.sticky.js?1714531837"></script>
-    <script src="/thedevops/js/featherlight.min.js?1714531837"></script>
-    <script src="/thedevops/js/highlight.pack.js?1714531837"></script>
+    <script src="/thedevops/js/clipboard.min.js?1714539468"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714539468"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714539468"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714539468"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714539468"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714539468"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714531837"></script>
-    <script src="/thedevops/js/learn.js?1714531837"></script>
-    <script src="/thedevops/js/hugo-learn.js?1714531837"></script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714539468"></script>
+    <script src="/thedevops/js/learn.js?1714539468"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714539468"></script>
 
-    <link href="/thedevops/mermaid/mermaid.css?1714531837" rel="stylesheet" />
-    <script src="/thedevops/mermaid/mermaid.js?1714531837"></script>
+    <link href="/thedevops/mermaid/mermaid.css?1714539468" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714539468"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

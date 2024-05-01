@@ -47,37 +47,74 @@ Install:
 apt install openjdk-17-jdk openjdk-17-jre
 apt install maven
 java -version
-mnv -v
+mvn -v
 ````
+
+Configuring Database Spring boot: https://www.baeldung.com/spring-boot-configure-data-source-programmatic
+
+- DataSource: **application.properties**
+
+
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/3.png?featherlight=false&width=90pc)
+
+- Install Database: **MariaDB**
 
 ````
 apt install mariadb-server
-netstart -tlpun
+netstat -tlpun
 ````
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/4.png?featherlight=false&width=90pc)
 
-Configuring Database Spring boot: Mariadb 
+{{% notice note %}}
+Database should install in difference Server
+{{% /notice %}}
+
+- Configure DB:
 
 ````
 systemctl stop mariadb
+ls /etc/mysql/
 ````
-nano /etc/mysql/mariadb.conf.d/50-server.conf
+nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ````
 bin-address = 0.0.0.0
 ````
+
 ````
 systemctl restart mariadb
+netstat -tlpun
 ````
-mysq -u root
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/6.png?featherlight=false&width=90pc)
+
+- Create Database: import shoe_shopdb.sql to MariaDB
+
+mysql -u root
+
+- show databases: **show databases;**
+
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/7.png?featherlight=false&width=90pc)
+
+- Create datatabse: **Database** and **User**
+  - **user**: shoeshop
+  - **@%**: can access all server
+  - **identified**: password
+  - **grant**: permission for **shoeshop** apply to all resource
+  - **flush privileges**: save changes
+
 ````
 show databases;
 create database shoeshop;
 create user 'shoeshop'@%'identified by 'shoeshop';
-grant all privileges on shoeshop.* to 'shoeshop'@'%';
+grant all privileges on shoeshop.* to  'shoeshop'@'%';
 flush privileges;
 exit
 ````
 
-mysq -h 192.168.33.110 -P 3306 -u shoeshop
+- Login user **shoeshop**: mysql -h 192.168.33.110 -P 3306 -u shoeshop
+    - **h**: host
+    - **p**: port
+    - **u**: user
+
 ````
 show databases;
 use shoeshop;
