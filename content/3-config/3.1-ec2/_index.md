@@ -163,16 +163,16 @@ Terraform plan:
 ```dockercompose
  docker-compose run –rm terraform plan
 ```
-![31](/cicd-ws/images/3-config/3.1-ec2/1.png)
+![31](/thedevops/images/3-config/3.1-ec2/1.png)
 
 Terraform apply: 
 ```dockercompose
  docker-compose run --rm terraform apply --auto-approve
 ```
-![23](/cicd-ws/images/3-config/3.1-ec2/2.png)
+![23](/thedevops/images/3-config/3.1-ec2/2.png)
 
 -   AWS Instance checking:
-![23](/cicd-ws/images/3-config/3.1-ec2/4.png?featherlight=false&width=90pc)
+![23](/thedevops/images/3-config/3.1-ec2/4.png?featherlight=false&width=90pc)
 
 Add Keypair permission:
 ```dockercompose
@@ -184,4 +184,4 @@ SSH to EC2 Instances:
  ssh -i tf-cli-keypair.pem ec2-user@13.250.64.49
 ```
 -   AWS Instance checking:
-![23](/cicd-ws/images/3-config/3.1-ec2/3.png?featherlight=false&width=90pc)
+![23](/thedevops/images/3-config/3.1-ec2/3.png?featherlight=false&width=90pc)

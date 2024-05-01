@@ -40,7 +40,7 @@ chown -R todolist:todolist /projects/todolist
 chmod -R 750 /projects/todolist
 ````
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/1.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/1.png?featherlight=false&width=90pc)
 
 #### Run Project: VUE
 Source : 
@@ -111,7 +111,7 @@ npm run build
 ````
 
 ISSUE: version
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/2.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/2.png?featherlight=false&width=90pc)
 
 
 Fix ISSUE: Update same version or latest
@@ -125,9 +125,9 @@ npm run build
 Project will build file or folder. In this project **VUE** will build to a folder is : **dist**
 {{% /notice %}}
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/3.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/3.png?featherlight=false&width=90pc)
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4-1.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4-1.png?featherlight=false&width=90pc)
 
 {{% notice tip %}}
 We have 3 way to run a Fontend project: Webserver - Services - Pm2
@@ -136,11 +136,11 @@ We have 3 way to run a Fontend project: Webserver - Services - Pm2
 npm run serve
 ````
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4.png?featherlight=false&width=90pc)
 
 Checking : http://192.168.33.100:3000/
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/5.png)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/5.png)
 
 #### Run with Nginx Webserver
 Install
@@ -151,7 +151,7 @@ Check port
 ````
 netstat -tlpun
 ````
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/6.png?featherlight=false&width=50pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/6.png?featherlight=false&width=50pc)
 
 Configure: 
 
@@ -163,8 +163,8 @@ server {
         listen [::]:8999 default_server;
 ````
 - Test and apply configure: **nginx -t** and **systemctl restart nginx**
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/7.png?featherlight=false&width=90pc)
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/8.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/7.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/8.png?featherlight=false&width=90pc)
 
 Setup Project run Nginx port **8088**:
 
@@ -178,7 +178,7 @@ server {
 }
 ````
 - ISSUE: User for nginx (vi /etc/nginx.conf -> user **www-data**)
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/9.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/9.png?featherlight=false&width=90pc)
 
 - Fix: add user (www-data) to group todolist
 ````
@@ -186,7 +186,7 @@ usermod -aG todolist www-data
 ````
 - Apply configure: **systemctl restart nginx** or **nginx -s reload**
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/10.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/10.png?featherlight=false&width=90pc)
 
 #### Projects React
 Source: **vision.zip**
@@ -195,12 +195,12 @@ User: **vision**
 
 Project folder: **/projects/vision**
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/11.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/11.png?featherlight=false&width=90pc)
 
 Run application
 -   npm install
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/12.png?featherlight=false&width=90pc)   
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/12.png?featherlight=false&width=90pc)   
 
 
 Run as services: vi **/lib/systemd/system/vision.service**
@@ -216,8 +216,8 @@ ExecStart=npm run start -- --port=3000
 -   systemctl daemon-reload
 -   systemctl start vision
 -   systemctl status vision
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/13.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/13.png?featherlight=false&width=90pc)
 
 Check: http://192.168.33.100:3000
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/14.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/14.png?featherlight=false&width=90pc)

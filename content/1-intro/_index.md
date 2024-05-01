@@ -11,7 +11,7 @@ pre : " <b> 1. </b> "
 #### Overview
 Continuous Integration and Continuous Deployment (CI/CD) is a cornerstone of DevOps methodology, emphasizing automation and collaboration throughout the software development lifecycle.
 
-![0](/cicd-ws/images/1/devops.png?featherlight=false&width=50pc)
+![0](/thedevops/images/1/devops.png?featherlight=false&width=50pc)
 
 - Continuous Integration (CI):
   - Developers regularly push code changes to a shared repository.

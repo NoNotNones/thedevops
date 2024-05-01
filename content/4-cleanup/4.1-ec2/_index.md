@@ -15,7 +15,7 @@ Run docker compose:
  docker-compose run --rm terraform destroy --auto-approve
 ```
 
-![41](/cicd-ws/images/4-cleanup/4.1-ec2/1.png)
+![41](/thedevops/images/4-cleanup/4.1-ec2/1.png)
 
 #### AWS Checking
-![41](/cicd-ws/images/4-cleanup/4.1-ec2/2.png)
+![41](/thedevops/images/4-cleanup/4.1-ec2/2.png)

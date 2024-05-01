@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/thedevops/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=thedevops/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.123.8">
@@ -12,21 +12,21 @@
     <title>Jenkins :: </title>
 
     
-    <link href="/thedevops/css/nucleus.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/fontawesome-all.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hybrid.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/featherlight.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/perfect-scrollbar.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/auto-complete.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/theme.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hugo-theme.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/nucleus.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714531837" rel="stylesheet">
     
-    <link href="/thedevops/css/theme-workshop.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/theme-workshop.css?1714531837" rel="stylesheet">
     
     
 
-    <script src="/thedevops/js/jquery-3.3.1.min.js?1714529523"></script>
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714531837"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714529523"></script>
-<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714531837"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714531837"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/nonotnonez.github.io\/thedevops\/";
+        var baseurl = "http:\/\/localhost:1313\/thedevops\/";
     
 </script>
-<script type="text/javascript" src="/thedevops/js/search.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714531837"></script>
 
     
   </div>
@@ -1260,8 +1260,8 @@ systemctl status jenkins
 </ul>
 <pre tabindex="0"><code class="language-linux" data-lang="linux">chmod +x install-docker.sh
 sh install-docker.sh
-</code></pre><p><img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/1.png">
-<img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/2.png"></p>
+</code></pre><p><img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/1.png">
+<img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/2.png"></p>
 <ul>
 <li>Create Docker compose file</li>
 </ul>
@@ -1284,7 +1284,7 @@ sh install-docker.sh
 <li>Run Jenkins Server</li>
 </ul>
 <pre tabindex="0"><code class="language-linux" data-lang="linux">docker-compose up jenkins -d
-</code></pre><p><img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/3.png"></p>
+</code></pre><p><img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/3.png"></p>
 <h4 id="configuration-jenkins-server">Configuration Jenkins Server:</h4>
 <ul>
 <li>Login:</li>
@@ -1295,14 +1295,14 @@ sh install-docker.sh
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">## Admin password: </span>
 </span></span><span style="display:flex;"><span>docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
-</span></span></code></pre></div><p><img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/4.png">
-<img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/5.png">
-<img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/6.png">
-<img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/7.png">
-<img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/8.png"></p>
+</span></span></code></pre></div><p><img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/4.png">
+<img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/5.png">
+<img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/6.png">
+<img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/7.png">
+<img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/8.png"></p>
 <ul>
 <li>Overview
-<img alt="33" src="/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/9.png"></li>
+<img alt="33" src="/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/9.png"></li>
 </ul>
 <h3 id="content">Content</h3>
 <ol>
@@ -1892,19 +1892,19 @@ sh install-docker.sh
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/thedevops/js/clipboard.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714529523"></script>
-    <script src="/thedevops/js/jquery.sticky.js?1714529523"></script>
-    <script src="/thedevops/js/featherlight.min.js?1714529523"></script>
-    <script src="/thedevops/js/highlight.pack.js?1714529523"></script>
+    <script src="/thedevops/js/clipboard.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714531837"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714531837"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714531837"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714531837"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714529523"></script>
-    <script src="/thedevops/js/learn.js?1714529523"></script>
-    <script src="/thedevops/js/hugo-learn.js?1714529523"></script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714531837"></script>
+    <script src="/thedevops/js/learn.js?1714531837"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714531837"></script>
 
-    <link href="/thedevops/mermaid/mermaid.css?1714529523" rel="stylesheet" />
-    <script src="/thedevops/mermaid/mermaid.js?1714529523"></script>
+    <link href="/thedevops/mermaid/mermaid.css?1714531837" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714531837"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

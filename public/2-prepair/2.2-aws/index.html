@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/thedevops/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=thedevops/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.123.8">
@@ -12,21 +12,21 @@
     <title>AWS :: </title>
 
     
-    <link href="/thedevops/css/nucleus.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/fontawesome-all.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hybrid.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/featherlight.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/perfect-scrollbar.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/auto-complete.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/theme.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hugo-theme.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/nucleus.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714531837" rel="stylesheet">
     
-    <link href="/thedevops/css/theme-workshop.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/theme-workshop.css?1714531837" rel="stylesheet">
     
     
 
-    <script src="/thedevops/js/jquery-3.3.1.min.js?1714529523"></script>
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714531837"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714529523"></script>
-<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714531837"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714531837"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/nonotnonez.github.io\/thedevops\/";
+        var baseurl = "http:\/\/localhost:1313\/thedevops\/";
     
 </script>
-<script type="text/javascript" src="/thedevops/js/search.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714531837"></script>
 
     
   </div>
@@ -1193,18 +1193,18 @@
 <h4 id="configuration">Configuration</h4>
 <p>Prepair and run docker compose file</p>
 <pre tabindex="0"><code class="language-dockercompose" data-lang="dockercompose"> docker-compose run --rm aws --version 
-</code></pre><p><img alt="22" src="/cicd-ws/images/2-prepair/2.2-aws/1.png"></p>
+</code></pre><p><img alt="22" src="/thedevops/images/2-prepair/2.2-aws/1.png"></p>
 <h5 id="aws">AWS:</h5>
 <p>Create keypair to access AWS Instances: <strong>tf-cli-keypair.pem</strong></p>
 <pre tabindex="0"><code class="language-dockercompose" data-lang="dockercompose">docker-compose run --rm aws ec2 create-key-pair --key-name tf-cli-keypair --query &#39;KeyMaterial&#39; --output text &gt; tf-cli-keypair.pem
-</code></pre><p><img alt="22" src="/cicd-ws/images/2-prepair/2.2-aws/5.png"></p>
+</code></pre><p><img alt="22" src="/thedevops/images/2-prepair/2.2-aws/5.png"></p>
 <p>Create AWS Account for Terraform use AWS CLI: <strong>tf-cli</strong></p>
 <pre tabindex="0"><code class="language-dockercompose" data-lang="dockercompose"> docker-compose run --rm aws iam create-user --user-name tf-cli
 </code></pre><p>AWS Checking keypair:
-<img alt="22" src="/cicd-ws/images/2-prepair/2.2-aws/2.png"></p>
+<img alt="22" src="/thedevops/images/2-prepair/2.2-aws/2.png"></p>
 <p>Create Access Key &amp; export to local</p>
 <pre tabindex="0"><code class="language-dockercompose" data-lang="dockercompose"> docker-compose run --rm aws iam create-access-key --user-name tf-cli &gt; tf_cli-access_key.json
-</code></pre><p><img alt="22" src="/cicd-ws/images/2-prepair/2.2-aws/3.png"></p>
+</code></pre><p><img alt="22" src="/thedevops/images/2-prepair/2.2-aws/3.png"></p>
 <p>Create policy and configure to allow access EC2 and Limit Region</p>
 <ul>
 <li>Create a custom policy file: <strong>ec2-limited-access-policy.json</strong></li>
@@ -1233,7 +1233,7 @@
 </ul>
 <pre tabindex="0"><code class="language-dockercompose" data-lang="dockercompose"> docker-compose run --rm aws iam attach-user-policy --user-name tf-cli --policy-arn arn:aws:iam::637423373411:policy/EC2FullAccessAPSouthEast1
 </code></pre><p>AWS Checking User:
-<img alt="22" src="/cicd-ws/images/2-prepair/2.2-aws/4.png?featherlight=false&width=90pc"></p>
+<img alt="22" src="/thedevops/images/2-prepair/2.2-aws/4.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -1816,19 +1816,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/thedevops/js/clipboard.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714529523"></script>
-    <script src="/thedevops/js/jquery.sticky.js?1714529523"></script>
-    <script src="/thedevops/js/featherlight.min.js?1714529523"></script>
-    <script src="/thedevops/js/highlight.pack.js?1714529523"></script>
+    <script src="/thedevops/js/clipboard.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714531837"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714531837"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714531837"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714531837"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714529523"></script>
-    <script src="/thedevops/js/learn.js?1714529523"></script>
-    <script src="/thedevops/js/hugo-learn.js?1714529523"></script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714531837"></script>
+    <script src="/thedevops/js/learn.js?1714531837"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714531837"></script>
 
-    <link href="/thedevops/mermaid/mermaid.css?1714529523" rel="stylesheet" />
-    <script src="/thedevops/mermaid/mermaid.js?1714529523"></script>
+    <link href="/thedevops/mermaid/mermaid.css?1714531837" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714531837"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -29,13 +29,13 @@ Git is a distributed version control system (DVCS) that helps developers track c
     - cd /ws-0001/terraform
 - Create **.gitignore**: 
   - to security and prevent important file upload to github
-![24](/cicd-ws/images/2-prepair/2.4-git/1.png)
+![24](/thedevops/images/2-prepair/2.4-git/1.png)
 
 - Push Source code to Git Repo:
     - git status
     - git add .
     - git commit -m "Add Tf source"
     - git push 
-![24](/cicd-ws/images/2-prepair/2.4-git/2.png)
+![24](/thedevops/images/2-prepair/2.4-git/2.png)
 
 

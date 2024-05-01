@@ -33,7 +33,7 @@ Run docker compose:
 ```dockercompose
  docker-compose run --rm terraform version
 ```
-![23](/cicd-ws/images/2-prepair/2.3-terraform/1.png)
+![23](/thedevops/images/2-prepair/2.3-terraform/1.png)
 Run configure:
 
 Provider (**AWS**):   **versions.tf**
@@ -73,4 +73,4 @@ Terraform init:
 ```dockercompose
  docker-compose run --rm terraform init
 ```
-![23](/cicd-ws/images/2-prepair/2.3-terraform/2.png)
+![23](/thedevops/images/2-prepair/2.3-terraform/2.png)

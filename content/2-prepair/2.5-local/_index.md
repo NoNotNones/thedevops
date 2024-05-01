@@ -72,13 +72,13 @@ end
 ```
 **Installation**
 - **vagrant up**
-![25](/cicd-ws/images/2-prepair/2.5-local/1.vagrant/1.png)
+![25](/thedevops/images/2-prepair/2.5-local/1.vagrant/1.png)
 
 - **vagrant status**
-![25](/cicd-ws/images/2-prepair/2.5-local/1.vagrant/2.png)
+![25](/thedevops/images/2-prepair/2.5-local/1.vagrant/2.png)
 
 - **vagrant ssh** 
-![25](/cicd-ws/images/2-prepair/2.5-local/1.vagrant/3.png)
+![25](/thedevops/images/2-prepair/2.5-local/1.vagrant/3.png)
 
 - **vagrant halt** 
-![25](/cicd-ws/images/2-prepair/2.5-local/1.vagrant/4.png)
+![25](/thedevops/images/2-prepair/2.5-local/1.vagrant/4.png)

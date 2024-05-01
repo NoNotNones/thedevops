@@ -69,8 +69,8 @@ chmod +x install-docker.sh
 sh install-docker.sh
 
 ```
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/1.png)
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/2.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/1.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/2.png)
 
 - Create Docker compose file
 ```linux
@@ -97,7 +97,7 @@ volumes:
 ```linux
 docker-compose up jenkins -d
 ```
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/3.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/3.png)
 
 #### Configuration Jenkins Server:
 - Login:
@@ -110,13 +110,13 @@ http://192.168.33.110:8080
 ## Admin password: 
 docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/4.png)
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/5.png)
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/6.png)
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/7.png)
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/8.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/4.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/5.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/6.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/7.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/8.png)
 - Overview
-![33](/cicd-ws/images/3-config/3.3-labs/3.3.1-jenkins/9.png)
+![33](/thedevops/images/3-config/3.3-labs/3.3.1-jenkins/9.png)
 
 
 ### Content

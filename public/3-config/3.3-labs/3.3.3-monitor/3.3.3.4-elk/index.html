@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/thedevops/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=thedevops/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.123.8">
@@ -12,21 +12,21 @@
     <title>ELK Stack :: </title>
 
     
-    <link href="/thedevops/css/nucleus.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/fontawesome-all.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hybrid.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/featherlight.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/perfect-scrollbar.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/auto-complete.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/theme.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hugo-theme.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/nucleus.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714531837" rel="stylesheet">
     
-    <link href="/thedevops/css/theme-workshop.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/theme-workshop.css?1714531837" rel="stylesheet">
     
     
 
-    <script src="/thedevops/js/jquery-3.3.1.min.js?1714529523"></script>
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714531837"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714529523"></script>
-<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714531837"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714531837"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/nonotnonez.github.io\/thedevops\/";
+        var baseurl = "http:\/\/localhost:1313\/thedevops\/";
     
 </script>
-<script type="text/javascript" src="/thedevops/js/search.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714531837"></script>
 
     
   </div>
@@ -1207,7 +1207,7 @@
 </ul>
 <h4 id="configuration">Configuration</h4>
 <p>Firewall pfSense and ELK Stack
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/00.png?featherlight=false&width=90pc"></p>
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/00.png?featherlight=false&width=90pc"></p>
 <ul>
 <li>
 <p>Review:</p>
@@ -1241,7 +1241,7 @@
 </span></span><span style="display:flex;"><span>sudo apt-get install docker-compose
 </span></span></code></pre></div><ul>
 <li>Download Repo : <a href="https://github.com/pfelk/pfelk">https://github.com/pfelk/pfelk</a>
-<img alt="31" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/1.png"></li>
+<img alt="31" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/1.png"></li>
 </ul>
 </li>
 <li>
@@ -1253,15 +1253,15 @@
 </span></span><span style="display:flex;"><span> KIBANA_PASSWORD<span style="color:#f92672">=</span>changeme
 </span></span><span style="display:flex;"><span> LOGSTASH_PASSWORD<span style="color:#f92672">=</span>changeme
 </span></span><span style="display:flex;"><span> LICENSE<span style="color:#f92672">=</span>basic
-</span></span></code></pre></div><p><img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/2.png"></p>
+</span></span></code></pre></div><p><img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/2.png"></p>
 <ul>
 <li>
 <p>Edit logstash configure: <strong>etc/logstash/config/logstash.yml</strong>
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/3.png"></p>
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/3.png"></p>
 </li>
 <li>
 <p>Run docker compose: <strong>docker-compose up -d</strong>
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/4.png"></p>
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/4.png"></p>
 </li>
 <li>
 <p>Settings:</p>
@@ -1280,8 +1280,8 @@
 <ul>
 <li>22.04-firewall.ndjson</li>
 <li>Options: 22.01-unbound.ndjson; 22.01-captive.ndjson; v20.2-dhcp.ndjson
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/5.png?featherlight=false&width=90pc">
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/6.png?featherlight=false&width=90pc"></li>
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/5.png?featherlight=false&width=90pc">
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/6.png?featherlight=false&width=90pc"></li>
 </ul>
 </li>
 </ul>
@@ -1292,14 +1292,14 @@
 <p>Firewall-Configure: sent log to log server</p>
 <ul>
 <li>Status &gt; System Logs &gt; Settings
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/9.png?featherlight=false&width=90pc"></li>
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/9.png?featherlight=false&width=90pc"></li>
 </ul>
 </li>
 <li>
 <p>Dashboard view:
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc">
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc">
-<img alt="3334" src="/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/120.png?featherlight=false&width=90pc"></p>
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc">
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc">
+<img alt="3334" src="/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/120.png?featherlight=false&width=90pc"></p>
 </li>
 </ul>
 </li>
@@ -1895,19 +1895,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/thedevops/js/clipboard.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714529523"></script>
-    <script src="/thedevops/js/jquery.sticky.js?1714529523"></script>
-    <script src="/thedevops/js/featherlight.min.js?1714529523"></script>
-    <script src="/thedevops/js/highlight.pack.js?1714529523"></script>
+    <script src="/thedevops/js/clipboard.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714531837"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714531837"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714531837"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714531837"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714529523"></script>
-    <script src="/thedevops/js/learn.js?1714529523"></script>
-    <script src="/thedevops/js/hugo-learn.js?1714529523"></script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714531837"></script>
+    <script src="/thedevops/js/learn.js?1714531837"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714531837"></script>
 
-    <link href="/thedevops/mermaid/mermaid.css?1714529523" rel="stylesheet" />
-    <script src="/thedevops/mermaid/mermaid.js?1714529523"></script>
+    <link href="/thedevops/mermaid/mermaid.css?1714531837" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714531837"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

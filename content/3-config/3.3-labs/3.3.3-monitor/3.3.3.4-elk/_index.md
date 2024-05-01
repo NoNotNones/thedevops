@@ -14,7 +14,7 @@ pre : " <b> 3.3.3.4 </b> "
 
 #### Configuration
 Firewall pfSense and ELK Stack
-![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/00.png?featherlight=false&width=90pc)
+![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/00.png?featherlight=false&width=90pc)
 - Review: 
   - **pfelk** is a highly customizable open-source tool for ingesting and visualizing your firewall traffic with the full power of Elasticsearch, Logstash and Kibana.
   - Git repo reference: https://github.com/pfelk/pfelk.
@@ -42,7 +42,7 @@ Firewall pfSense and ELK Stack
    sudo apt-get install docker-compose
    ````
    - Download Repo : https://github.com/pfelk/pfelk
-   ![31](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/1.png)
+   ![31](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/1.png)
 
 - Configuration
    - Edit credentials **.env**
@@ -52,13 +52,13 @@ Firewall pfSense and ELK Stack
     LOGSTASH_PASSWORD=changeme
     LICENSE=basic
    ````
-   ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/2.png)
+   ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/2.png)
 
     - Edit logstash configure: **etc/logstash/config/logstash.yml**
-   ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/3.png)
+   ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/3.png)
 
     - Run docker compose: **docker-compose up -d**
-   ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/4.png)
+   ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/4.png)
 
     - Settings:
       - Log-Server:
@@ -70,16 +70,16 @@ Firewall pfSense and ELK Stack
         - Import Dashboard : **https://github.com/pfelk/pfelk/tree/main/etc/pfelk/dashboard**
           - 22.04-firewall.ndjson
           - Options: 22.01-unbound.ndjson; 22.01-captive.ndjson; v20.2-dhcp.ndjson
-     ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/5.png?featherlight=false&width=90pc)
-     ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/6.png?featherlight=false&width=90pc)
+     ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/5.png?featherlight=false&width=90pc)
+     ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/6.png?featherlight=false&width=90pc)
 
     - Firewall-Configure: sent log to log server
       - Status > System Logs > Settings
-     ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/9.png?featherlight=false&width=90pc)
+     ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/9.png?featherlight=false&width=90pc)
 
     - Dashboard view:
-     ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc)
-     ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc)
-     ![3334](/cicd-ws/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/120.png?featherlight=false&width=90pc)
+     ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc)
+     ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/110.png?featherlight=false&width=90pc)
+     ![3334](/thedevops/images/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/120.png?featherlight=false&width=90pc)
     
 Documents: https://docs.google.com/spreadsheets/d/1zewwK5ikojziCHTMt8bzRvbOV1ewgV-UjozBhae1-Lw/edit#gid=274683191

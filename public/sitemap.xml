@@ -2,72 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nonotnonez.github.io/thedevops/</loc>
+    <loc>http://localhost:1313/thedevops/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.1-cicd/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.1-cicd/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/2-prepair/2.1-docker/</loc>
+    <loc>http://localhost:1313/thedevops/2-prepair/2.1-docker/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.4-security/3.3.4.1-firewall/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.4-security/3.3.4.1-firewall/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.1-ec2/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.1-ec2/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/1-intro/</loc>
+    <loc>http://localhost:1313/thedevops/1-intro/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.1-zabbix/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.1-zabbix/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.2-advanced/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.2-advanced/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/2-prepair/2.2-aws/</loc>
+    <loc>http://localhost:1313/thedevops/2-prepair/2.2-aws/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.2-cicd/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.2-cicd/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/2-prepair/</loc>
+    <loc>http://localhost:1313/thedevops/2-prepair/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.2-prometheus/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.2-prometheus/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.2-runner/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.2-runner/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.3-cicd/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.3-cicd/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.3-grafana/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.3-grafana/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.1-jenkins/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.1-jenkins/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/2-prepair/2.3-terraform/</loc>
+    <loc>http://localhost:1313/thedevops/2-prepair/2.3-terraform/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/2-prepair/2.4-git/</loc>
+    <loc>http://localhost:1313/thedevops/2-prepair/2.4-git/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.2-gitlab/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/4-cleanup/4.1-ec2/</loc>
+    <loc>http://localhost:1313/thedevops/4-cleanup/4.1-ec2/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/4-cleanup/</loc>
+    <loc>http://localhost:1313/thedevops/4-cleanup/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/4-cleanup/4.2-jenkins/</loc>
+    <loc>http://localhost:1313/thedevops/4-cleanup/4.2-jenkins/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/2-prepair/2.5-local/</loc>
+    <loc>http://localhost:1313/thedevops/2-prepair/2.5-local/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.3-monitor/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.4-security/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.4-security/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/3-config/3.3-labs/3.3.5-linux/</loc>
+    <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.5-linux/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/categories/</loc>
+    <loc>http://localhost:1313/thedevops/categories/</loc>
   </url><url>
-    <loc>https://nonotnonez.github.io/thedevops/tags/</loc>
+    <loc>http://localhost:1313/thedevops/tags/</loc>
   </url>
 </urlset>

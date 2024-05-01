@@ -32,14 +32,14 @@ chmod -R 750 /projects/shoeshop/
 
 Maven: defined with an XML file named **pom.xml**
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/1.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/1.png?featherlight=false&width=90pc)
 
 Java: 
 
 -   Checking require java version in pom.xml -> java.version=1.8
 
 
-![3351](/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/2.png?featherlight=false&width=90pc)
+![3351](/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/2.png?featherlight=false&width=90pc)
 
 Install: 
 

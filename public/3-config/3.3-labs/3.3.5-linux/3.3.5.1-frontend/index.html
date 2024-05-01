@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
+  <head><script src="/thedevops/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=thedevops/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.123.8">
@@ -12,21 +12,21 @@
     <title>Frontend :: </title>
 
     
-    <link href="/thedevops/css/nucleus.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/fontawesome-all.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hybrid.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/featherlight.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/perfect-scrollbar.min.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/auto-complete.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/theme.css?1714529523" rel="stylesheet">
-    <link href="/thedevops/css/hugo-theme.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/nucleus.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714531837" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714531837" rel="stylesheet">
     
-    <link href="/thedevops/css/theme-workshop.css?1714529523" rel="stylesheet">
+    <link href="/thedevops/css/theme-workshop.css?1714531837" rel="stylesheet">
     
     
 
-    <script src="/thedevops/js/jquery-3.3.1.min.js?1714529523"></script>
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714531837"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714529523"></script>
-<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714531837"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714531837"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/nonotnonez.github.io\/thedevops\/";
+        var baseurl = "http:\/\/localhost:1313\/thedevops\/";
     
 </script>
-<script type="text/javascript" src="/thedevops/js/search.js?1714529523"></script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714531837"></script>
 
     
   </div>
@@ -1224,7 +1224,7 @@ ls -l /projects
 <pre tabindex="0"><code>adduser todolist
 chown -R todolist:todolist /projects/todolist
 chmod -R 750 /projects/todolist
-</code></pre><p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/1.png?featherlight=false&width=90pc"></p>
+</code></pre><p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/1.png?featherlight=false&width=90pc"></p>
 <h4 id="run-project-vue">Run Project: VUE</h4>
 <p>Source :</p>
 <ul>
@@ -1285,7 +1285,7 @@ module.exports = {
 <pre tabindex="0"><code>npm install
 npm run build
 </code></pre><p>ISSUE: version
-<img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/2.png?featherlight=false&width=90pc"></p>
+<img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/2.png?featherlight=false&width=90pc"></p>
 <p>Fix ISSUE: Update same version or latest</p>
 <pre tabindex="0"><code>curl -s https://deb.nodesource.com/setup_18.x | sudo bash
 sudo apt install nodejs -y
@@ -1295,22 +1295,22 @@ npm run build
 <div class="notices tip" ><p>Project will build file or folder. In this project <strong>VUE</strong> will build to a folder is : <strong>dist</strong></p>
 </div>
 
-<p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/3.png?featherlight=false&width=90pc"></p>
-<p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4-1.png?featherlight=false&width=90pc"></p>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/3.png?featherlight=false&width=90pc"></p>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4-1.png?featherlight=false&width=90pc"></p>
 
 <div class="notices tip" ><p>We have 3 way to run a Fontend project: Webserver - Services - Pm2</p>
 </div>
 
 <pre tabindex="0"><code>npm run serve
-</code></pre><p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4.png?featherlight=false&width=90pc"></p>
+</code></pre><p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/4.png?featherlight=false&width=90pc"></p>
 <p>Checking : http://192.168.33.100:3000/</p>
-<p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/5.png"></p>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/5.png"></p>
 <h4 id="run-with-nginx-webserver">Run with Nginx Webserver</h4>
 <p>Install</p>
 <pre tabindex="0"><code>apt install nginx -y
 </code></pre><p>Check port</p>
 <pre tabindex="0"><code>netstat -tlpun
-</code></pre><p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/6.png?featherlight=false&width=50pc"></p>
+</code></pre><p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/6.png?featherlight=false&width=50pc"></p>
 <p>Configure:</p>
 <p>Change default nginx port to <strong>8999</strong>: cd /etc/nginx</p>
 <ul>
@@ -1321,8 +1321,8 @@ npm run build
         listen [::]:8999 default_server;
 </code></pre><ul>
 <li>Test and apply configure: <strong>nginx -t</strong> and <strong>systemctl restart nginx</strong>
-<img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/7.png?featherlight=false&width=90pc">
-<img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/8.png?featherlight=false&width=90pc"></li>
+<img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/7.png?featherlight=false&width=90pc">
+<img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/8.png?featherlight=false&width=90pc"></li>
 </ul>
 <p>Setup Project run Nginx port <strong>8088</strong>:</p>
 <ul>
@@ -1337,7 +1337,7 @@ npm run build
 </code></pre><ul>
 <li>
 <p>ISSUE: User for nginx (vi /etc/nginx.conf -&gt; user <strong>www-data</strong>)
-<img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/9.png?featherlight=false&width=90pc"></p>
+<img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/9.png?featherlight=false&width=90pc"></p>
 </li>
 <li>
 <p>Fix: add user (www-data) to group todolist</p>
@@ -1347,17 +1347,17 @@ npm run build
 </code></pre><ul>
 <li>Apply configure: <strong>systemctl restart nginx</strong> or <strong>nginx -s reload</strong></li>
 </ul>
-<p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/10.png?featherlight=false&width=90pc"></p>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/10.png?featherlight=false&width=90pc"></p>
 <h4 id="projects-react">Projects React</h4>
 <p>Source: <strong>vision.zip</strong></p>
 <p>User: <strong>vision</strong></p>
 <p>Project folder: <strong>/projects/vision</strong></p>
-<p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/11.png?featherlight=false&width=90pc"></p>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/11.png?featherlight=false&width=90pc"></p>
 <p>Run application</p>
 <ul>
 <li>npm install</li>
 </ul>
-<p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/12.png?featherlight=false&width=90pc"></p>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/12.png?featherlight=false&width=90pc"></p>
 <p>Run as services: vi <strong>/lib/systemd/system/vision.service</strong></p>
 <pre tabindex="0"><code>[Service]
 Type=simple
@@ -1369,10 +1369,10 @@ ExecStart=npm run start -- --port=3000
 <li>systemctl daemon-reload</li>
 <li>systemctl start vision</li>
 <li>systemctl status vision
-<img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/13.png?featherlight=false&width=90pc"></li>
+<img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/13.png?featherlight=false&width=90pc"></li>
 </ul>
 <p>Check: http://192.168.33.100:3000</p>
-<p><img alt="3351" src="/cicd-ws/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/14.png?featherlight=false&width=90pc"></p>
+<p><img alt="3351" src="/thedevops/images/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/14.png?featherlight=false&width=90pc"></p>
 
 
 
@@ -1960,19 +1960,19 @@ ExecStart=npm run start -- --port=3000
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/thedevops/js/clipboard.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.min.js?1714529523"></script>
-    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714529523"></script>
-    <script src="/thedevops/js/jquery.sticky.js?1714529523"></script>
-    <script src="/thedevops/js/featherlight.min.js?1714529523"></script>
-    <script src="/thedevops/js/highlight.pack.js?1714529523"></script>
+    <script src="/thedevops/js/clipboard.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714531837"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714531837"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714531837"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714531837"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714531837"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714529523"></script>
-    <script src="/thedevops/js/learn.js?1714529523"></script>
-    <script src="/thedevops/js/hugo-learn.js?1714529523"></script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714531837"></script>
+    <script src="/thedevops/js/learn.js?1714531837"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714531837"></script>
 
-    <link href="/thedevops/mermaid/mermaid.css?1714529523" rel="stylesheet" />
-    <script src="/thedevops/mermaid/mermaid.js?1714529523"></script>
+    <link href="/thedevops/mermaid/mermaid.css?1714531837" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714531837"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
