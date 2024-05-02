@@ -1,0 +1,2322 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/thedevops/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=thedevops/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.123.7">
+    <meta name="description" content="">
+<meta name="author" content="tuanatran.vn@gmail.com">
+
+    <link rel="icon" href="/thedevops/images/favicon.png" type="image/png">
+
+    <title>SRE :: </title>
+
+    
+    <link href="/thedevops/css/nucleus.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714642016" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714642016" rel="stylesheet">
+    
+    <link href="/thedevops/css/theme-workshop.css?1714642016" rel="stylesheet">
+    
+    
+
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714642016"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/thedevops/5-learn/5.1-sre/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/thedevops">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714642016"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714642016"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/thedevops\/";
+    
+</script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714642016"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/1-intro/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/1-intro/">
+           <b> 1. </b> Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/2-prepair/" title="Prepairation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/2-prepair/">
+           <b> 2. </b> Prepairation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/2-prepair/2.1-docker/" title="Container" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/2-prepair/2.1-docker/">
+           <b> 2.1 </b> Container
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/2-prepair/2.2-aws/" title="AWS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/2-prepair/2.2-aws/">
+           <b> 2.2 </b> AWS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/2-prepair/2.3-terraform/" title="Terraform" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/2-prepair/2.3-terraform/">
+           <b> 2.3 </b> Terraform
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/2-prepair/2.4-git/" title="Git" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/2-prepair/2.4-git/">
+           <b> 2.4 </b> Git
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/2-prepair/2.5-local/" title="Local" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/2-prepair/2.5-local/">
+           <b> 2.5 </b> Local
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/" title="Configuration" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/">
+           <b> 3. </b> Configuration
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.1-ec2/" title="IaC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.1-ec2/">
+           <b> 3.1 </b> IaC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.2-cicd/" title="CICD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.2-cicd/">
+           <b> 3.2 </b> CICD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/" title="Labs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/">
+           <b> 3.3 </b> Labs
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.1-jenkins/" title="Jenkins" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.1-jenkins/">
+           <b> 3.3.1 </b> Jenkins
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.1-cicd/" title="CICD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.1-cicd/">
+           <b> 3.3.1.1 </b> CICD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.2-advanced/" title="Advanced" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.2-advanced/">
+           <b> 3.3.1.2 </b> Advanced
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.2-gitlab/" title="Gitlabs" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.2-gitlab/">
+           <b> 3.3.2 </b> Gitlabs
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/" title="Workflow" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/">
+           <b> 3.3.2.1 </b> Workflow
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.2-runner/" title="Runner" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.2-runner/">
+           <b> 3.3.2.2 </b> Runner
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.3-cicd/" title="CICD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.3-cicd/">
+           <b> 3.3.2.3 </b> CICD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.3-monitor/" title="Monitoring" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.3-monitor/">
+           <b> 3.3.3 </b> Monitoring
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.1-zabbix/" title="Zabbix" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.1-zabbix/">
+           <b> 3.3.3.1 </b> Zabbix
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.2-prometheus/" title="Prometheus" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.2-prometheus/">
+           <b> 3.3.3.2 </b> Prometheus
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.3-grafana/" title="Grafana" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.3-grafana/">
+           <b> 3.3.3.3 </b> Grafana
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/" title="ELK Stack" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.4-elk/">
+           <b> 3.3.3.4 </b> ELK Stack
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.4-security/" title="Security" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.4-security/">
+           <b> 3.3.4 </b> Security
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.4-security/3.3.4.1-firewall/" title="Firewall" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.4-security/3.3.4.1-firewall/">
+           <b> 3.3.4.1 </b> Firewall
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.5-linux/" title="Linux" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.5-linux/">
+           <b> 3.3.5 </b> Linux
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/" title="Frontend" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.1-frontend/">
+           <b> 3.3.5.1 </b> Frontend
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/" title="Backend" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/3-config/3.3-labs/3.3.5-linux/3.3.5.2-backend/">
+           <b> 3.3.5.2 </b> Backend
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/4-cleanup/" title="Resource Cleanup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/4-cleanup/">
+           <b> 4. </b> Resource Cleanup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/4-cleanup/4.1-ec2/" title="IaC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/4-cleanup/4.1-ec2/">
+           <b> 4.1 </b> IaC
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/4-cleanup/4.2-jenkins/" title="CICD" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/4-cleanup/4.2-jenkins/">
+           <b> 4.2 </b> CICD
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/5-learn/" title="Learn" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/thedevops/5-learn/">
+           <b> 5. </b> Learn
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/5-learn/5.1-sre/" title="SRE" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/thedevops/5-learn/5.1-sre/">
+           <b> 5.1 </b> SRE
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>01-05-2024</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/thedevops/'> DevOps Projects </a> > <a href='/thedevops/5-learn/'>Learn</a> > SRE
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#devops-foundations--site-reliability-engineering">DevOps Foundations:  Site Reliability Engineering</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              SRE
+            </h1>
+          
+
+        
+
+
+
+	<h3 id="devops-foundations--site-reliability-engineering">DevOps Foundations:  Site Reliability Engineering</h3>
+<h4 id="your-job-as-a-devops">Your job as a Devops</h4>
+<ul>
+<li>
+<p>SRE teams are half software engineers and half systems engineers. The real key is the engineering. It&rsquo;s an automation first approach that has little tolerance for repeated manual work.</p>
+<ul>
+<li>Continuous delivery is a DevOps approach to build engineering,</li>
+<li>Infrastructure automation is a DevOps approach to systems infrastructure</li>
+<li>SRE is a DevOps approach to the production support part of operations</li>
+</ul>
+</li>
+<li>
+<p>SRE is <strong>“what happens when you ask a software engineer to design an operations function.”</strong>
+—Ben Traynor
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/1.png?featherlight=false&width=40pc"></p>
+</li>
+<li>
+<p>ITSM &amp; SRE</p>
+<ul>
+<li>ITSM tried to solve these problems with paperwork</li>
+<li>SRE tries to solve them with engineering</li>
+</ul>
+</li>
+<li>
+<p>One way to make an assessment of where your organization currently is on its DevOps journey is to use a maturity mode: Operations-Maturity-Model <a href="https://www.linkedin.com/ambry/?x-li-ambry-ep=AQK7-TRsqg6ofQAAAY822Ivyy8YSVVaYxAsgaHw9mn08nTEDyV07pp1-JKT5HFpoI0eJFvotvhzMFP-wD48DAjK8sXX4zRQVFxz39fYzqlcfgivFp83RFTCGt8v04dGhJOfb-FjJLsuCL_vpJQ_maIWzfx5aeij8gDLp-RlOvygwwbqWVWm-Z7vAPmSbatRIziFZ5-cOU2cjERHWsDJBq3tphry16GxxwpFyFMwuCFVgrA679V40lvpiFjwXbbvIYbc2NPNYOUAxnDds2z0t_Svk7GDXhlptYOaY4BsJVUXod4bjVImrLaNaoKK-27768nuJ9R5SbiDlnZoqp5j3rJZhCwANAw4XsQ89-QhXioybu-ODBPwXgNhcDyBYL-Fo9dUrlzVH5uNZE3ktz0offVcPsGyHhyFjhPjaF5h7WGjYbsft2WhJ1sYpd5WT0hkLGTrb8t142T9srfpr3sfQcqYScn2FWaQ3DV61lxBZZQX7kt2MWVtQp0-zgMbv">Linkedin</a></p>
+<ul>
+<li>
+<p>We like the operations maturity model, and we&rsquo;ve included a copy of it in the course handout</p>
+</li>
+<li>
+<p>To give an example, let&rsquo;s look at one part of the model:
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/2.png?featherlight=false&width=40pc">
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/3.png?featherlight=false&width=40pc"></p>
+</li>
+<li>
+<p>Revisiting it six months later gives a good scorecard for the future. And by understanding the eventual goal, you can organically improve your culture, tools, and processes.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="sre-practice-areas-">SRE Practice Areas :</h4>
+<h4 id="1-release-engineering">1. Release engineering</h4>
+<ul>
+<li>is mainly about coming up with the best, lowest friction process you can to verify and to prove changes, and to communicate their release to production that works for you and your business.</li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/4.png?featherlight=false&width=40pc">
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/5.png?featherlight=false&width=40pc"></p>
+<ul>
+<li>That&rsquo;s right, continuous delivery shouldn&rsquo;t mean continuous disruption. People need to know what&rsquo;s changing and when - One great tool to do this is <strong>Feature Flags</strong>. Basically, as you make changes, you wrap them in toggles.</li>
+</ul>
+<h4 id="2-change-management-">2. Change management :</h4>
+<ul>
+<li>The goal is to have your change and release process eliminate manual work and instead rely on automation.</li>
+<li>The Visible Ops Handbook
+<ul>
+<li>
+<ol>
+<li>Phase 1 – stabilize the patient, modify first res</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Phase 2 – catch and release, find fragile artifac</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Phase 3 – establish repeatable-build library</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Phase 4 – enable continuous improvement</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-seft-service-automation">3. Seft-service automation:</h4>
+<ul>
+<li>When following an SRE approach, all of this falls into the topic of self-service automation. Self-service automation is much like the title implies.Individuals inside the organization are able to do what they need to through automation. Instead of creating silos between teams, we create automation to deal with the tasks most often needed where teams interact with each other.</li>
+<li>There are two main benefits of creating self-service automation
+<ul>
+<li>One of the benefits behind self-service automation is that it lowers the work in progress.</li>
+<li>The second benefit is reliability</li>
+</ul>
+</li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/6.png?featherlight=false&width=40pc"></p>
+<h4 id="4-slas-and-slos">4. SLAs and SLOs</h4>
+<ul>
+<li>Service Level Agreements and Service Level Objectives.</li>
+<li>Service Level Agreements are the promises you make about your service to others, whether your customers, whether they&rsquo;re people or other services. Think of SLAs as the services contract.</li>
+<li>Service level objectives are the goals that your service strives to provide in order to be deemed successful. Think of SLOs as the goals for the service.</li>
+<li>Knowing what metrics to use for SLAs, and SLOs makes all the difference down the road
+<ul>
+<li>When choosing these service metrics, there are a few considerations:
+<ul>
+<li><strong>Frequency</strong>:  How often is the measurement taken of your symmetric? Every 10 seconds? Every minute?</li>
+<li><strong>Aggregating</strong>: over a certain time period, and averaging the measurements. Depending on the service, this can be wildly different.</li>
+<li><strong>Geography</strong>: Are there different goals for certain regions or geography? For example, ensuring the same service performance in different areas of the globe has widely varying costs, and architectural concerns associated with it.</li>
+<li><strong>Monitoring system</strong> being used to measure the metric is key.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/7.png?featherlight=false&width=40pc">
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/8.png?featherlight=false&width=40pc"></p>
+<h4 id="5-incident-management">5. Incident management:</h4>
+<p>Problems with production are not usually people&rsquo;s favorite part of the job. But problems do strike, and having a high quality playbook on how to handle them will reduce your downtime.</p>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/9.png?featherlight=false&width=90pc"></p>
+<ul>
+<li>There are tools that address these issues.</li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/10.png?featherlight=false&width=40pc"></p>
+<ul>
+<li>
+<p>There are also open source alternatives like Cabot and Open Duty. - These tools let you set up on-call rotations and alert routing, and engineers can set up their own contact methods. Then when an alert comes in, the tools can reach out via email, text, and even voice calls to get someone to respond.</p>
+</li>
+<li>
+<p>Communicating the status of a problem to users is almost as important as getting someone to even fix it.  Users depend on your service, and when there&rsquo;s an issue, they expect to be proactively notified with clear information on how it impacts them, and when to expect a resolution. - You should have a robust incident communication process that is linked with your incident response process</p>
+</li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/11.png?featherlight=false&width=40pc"></p>
+<ul>
+<li>The more you have clear, easy-to-follow incident management processes, and engineers can escalate to get the help they need, the less stressful on-call is.</li>
+</ul>
+<h4 id="6-introducting-postmortems">6. Introducting postmortems</h4>
+<ul>
+<li>Once services get restored after an incident, your job is only half over. - That&rsquo;s right, being a <strong>good SRE</strong> requires learning from <strong>failures</strong> and <strong>outages</strong>.</li>
+<li>In a blameless postmortem, engineers share what happened and what they did, even the mistakes, without fear of punishment or retribution.</li>
+<li>How do we trun postmortems:
+<ul>
+<li>In a complex system there is not a single reason that a failure happened. All engineering systems are complex and you already have various safeguards in place, tests, monitoring, and so on</li>
+<li>For an outage to occur, it usually requires many failures at a variety of levels.</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-the-postmortem-process">7. The postmortem process</h4>
+<p>In our course handout, we have provided a postmortem template we like to use. <strong>Postmortem Template.pdf</strong></p>
+<p>Let&rsquo;s break down how we should use them.</p>
+<ul>
+<li>First is the <strong>description</strong>: The description should be short, and capture the essence of the incident in just a couple of sentences.</li>
+<li>The <strong>timeline</strong> includes relevant events, including activities that happened before, during, and after the incident.</li>
+<li>Next, you will want to link in any <strong>sources</strong>: This could be customer tickets, monitoring graphs, log line snippets, or anything else relevant to documenting the outage.</li>
+<li>Then we have a section on <strong>what went well</strong>: It&rsquo;s easy to jump to new theories of how to make your systems more perfect, but it&rsquo;s also valuable to look at what safeguards are already working to help reduce frequency, impact, or length of service issues.</li>
+<li>The next section is <strong>contributing causes</strong>: one bullet point per thing that contributed to the failure happening, delayed its detection, or delayed its resolution. - Include issues with communication or process as well</li>
+<li>Lastly, we round this out with <strong>corrective actions</strong>: . What specific things can we do in the future to improve our code, systems, and our response to outages?</li>
+<li>Finally, we calculate the <strong>metrics</strong>: escribe when the beginning and to end of the incident occurred, as well as calculate time to detection and time to resolution.</li>
+<li>Next, we gather this to stakeholders and <strong>hold the postmortem meeting</strong> within a few days of the incident</li>
+<li>Postmortem Template sample:
+<ul>
+<li>
+<p>Title :</p>
+<ul>
+<li>[Write three-to-five-word description of the incident.]</li>
+</ul>
+</li>
+<li>
+<p>Incident description:</p>
+<ul>
+<li>[Write two or three sentences describing the incident. Make it understandable to
+management and business stakeholders.]</li>
+<li>How was the incident detected? [Describe how the incident was detected. Include who, what, where, why, and how.]</li>
+<li>How were customers affected? [Describe which customers were impacted and the exact impact. Include who, what,
+where, why, and how. If customers reported issues, link those in here as well.]</li>
+</ul>
+</li>
+<li>
+<p>Timeline</p>
+<ul>
+<li>
+<p>[Everything should be in the same time zone.]</p>
+<ul>
+<li>Pre-incident
+• 01/01/2019 00:00:00 UTC [Add relevant information in chronological order.]</li>
+<li>Incident
+• 01/01/2019 00:00:00 UTC [Add relevant information in chronological order.]</li>
+<li>Post-incident
+• 01/01/2019 00:00:00 UTC [Add relevant information in chronological order.]</li>
+<li>Sources
+• [Links to monitoring, dashboards, logs]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>What went well</p>
+<ul>
+<li>
+<ol>
+<li>[Identify things that worked well to fend off for help resolve the incident. Each should be brief.]</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Contributing causes</p>
+<ul>
+<li>
+<ol>
+<li>[Identify factors that caused the incident, delayed its detection, or delayed its resolution. Each should be brief.]</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Corrective actions</p>
+<ul>
+<li>
+<ol>
+<li>[Describe what changes have or will be taken to prevent or mitigate this or similar incidents in the future. Changes listed here include but are not limited to testing, alerting, monitoring,logging, backups, and anything else related. Doing postmortems is an evolving practice inside the organization, so changes to the postmortem process itself should be included as well. Add relevant links to these items tracked in ticketing systems.]</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Metrics</p>
+<ul>
+<li>When did the incident begin?
+[first errors recorded]</li>
+<li>When did the incident end?
+[service restored]</li>
+<li>When did we detect the incident?
+[alert fired/customer notified]</li>
+<li>Time to detect
+[start_time – detect_time]</li>
+<li>Time to resolve
+[start_time – end_time]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-troubeshooting">8. Troubeshooting</h4>
+<ul>
+<li>
+<p>It&rsquo;s an inherent part of fixing service issues</p>
+</li>
+<li>
+<p>Troubleshooting is essentially a form of inquiry.</p>
+<ul>
+<li>You ask a question, devise a hypothesis, construct an experiment, test, analyze data, draw a conclusion and iterate.
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/12.png?featherlight=false&width=40pc"></li>
+<li>Your first step is to define your problem</li>
+<li>Often you have a very preliminary, incomplete and possibly erroneous error report, maybe an alert or someone who insists the server is down.</li>
+<li>Record the exact behavior you&rsquo;re seeing and start asking <strong>questions</strong>
+<ul>
+<li>What&rsquo;s the scope of the problem?</li>
+<li>Is the problem with that entire network?</li>
+<li>All the services in that cluster?</li>
+<li>All the processes on that one server?</li>
+<li>Is it just that endpoint? Just that user?</li>
+<li>Is it intermittent?</li>
+<li>And if so, is there a pattern to it? Has there been a change released to that service or system recently?</li>
+<li>Is there unusual traffic or are there errors on that application?</li>
+</ul>
+</li>
+<li>For each question, determine an experiment you can perform to prove or disprove it.</li>
+</ul>
+</li>
+<li>
+<p>For example, if you have a web transaction that goes through six different tiers, don&rsquo;t jump around. Gather your data to validate each <strong>hypothesis</strong></p>
+</li>
+<li>
+<p>Bring up preexisting data like monitoring and logging data and change records. Then collate the results of the experiments you performed.</p>
+</li>
+<li>
+<p>Make sure every experiment can rule out a specific hypothesis or else it&rsquo;s a waste of time.</p>
+</li>
+<li>
+<p>Don&rsquo;t waste time debating when there&rsquo;s a production outage at hand. If there&rsquo;s a safe and easy test to rule it out, do that.</p>
+</li>
+<li>
+<p>By logically experimenting, you can quickly get to the root of the problem.</p>
+<ul>
+<li>First, try <strong>experiments</strong> that reduce the scope of the problem the most.</li>
+<li>For example, if you have a web transaction that goes through six different tiers, don&rsquo;t jump around.<br>
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/13.png?featherlight=false&width=40pc">
+<ul>
+<li>Anchor on one instrumented point and then work quickly and steadily from it so that you don&rsquo;t end up with information that doesn&rsquo;t make sense and it&rsquo;s hard to correlate</li>
+<li>Also, prioritize non-intrusive tests over experiments that could affect the system.</li>
+<li>You&rsquo;ll have to judge whether the risk of those experiments is worse than the problem at hand.</li>
+<li>And if you can perform those experiments in a test environment, do so.</li>
+<li>If you have a sufficiently production-like test environment, it&rsquo;s informative to know whether the issue exists there</li>
+<li>And even if it doesn&rsquo;t, you can reduce the impact of tests you&rsquo;re going to run on production by making sure they work right on the test environment and don&rsquo;t break anything themselves.</li>
+<li>Of course you should know your own system and the experiments and the tools you use should be documented or better, automated to speed up the process</li>
+<li>The more parts of your system you can instrument, the easier it is to determine the exact problem.</li>
+<li>Don&rsquo;t get caught up too much in finding root cause. Remember that the first job of an operator is to restore service to users. Root cause can wait.</li>
+<li>Once you&rsquo;ve characterized a problem enough to determine a possible resolution, it&rsquo;s worth taking steps to save state</li>
+<li>Copy logs, take thread dumps, save copy of that VM to look at later, but then get to restoring the service by doing whatever is needed.</li>
+<li>Fixes follow the same <strong>cycle of hypothesis</strong>, test and analyze. But be careful, most problems aren&rsquo;t constant over time. It&rsquo;s easy to make a change that you think fixed the problem</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>But for example, what really happened was a buggy script happened to finish executing right around the same time.</p>
+<ul>
+<li>Too often, we allow correlation to control our thinking.</li>
+<li>Scientific experimentation can&rsquo;t be blind. It has to be based in knowledge of your system and an understanding of why a change would have a given effect</li>
+</ul>
+</li>
+<li>
+<p>Here&rsquo;s a couple of pro troubleshooting tips.</p>
+<ul>
+<li>First, you need to know exactly what the system looks like when it&rsquo;s working</li>
+<li><code>I've seen people waste hours running down some log error that turned out to be a normal part of that application</code></li>
+<li>Also in a distributed application, there are often many external dependencies, like databases, file systems, caches, other services. Knowing them and being able to quickly narrow down which are okay and which are having problems, that&rsquo;s one of the most time saving techniques you can have prepared.</li>
+<li>And finally, it&rsquo;s unusual for a service disruption to be from just one cause. Often, it takes a couple factors working in concert to disrupt service</li>
+<li>You know, keep that in mind because multiple variables can cause more complex and confusing symptoms. It takes even more careful experiments to discern the actual problem.</li>
+<li>Remember, <strong>troubleshooting is a science</strong>. Don&rsquo;t waste time shooting from the hip. Carefully follow a rational methodology to quickly and reliably lead you to the problem and its fix.</li>
+</ul>
+</li>
+</ul>
+<h4 id="9-performace-engineering">9. Performace Engineering</h4>
+<ul>
+<li>Performance is one of the greatest challenges in operating a reliable system.</li>
+<li>Once you get the basics down, usually services aren&rsquo;t just all up or all down. Instead, they get slow. Pieces go down and then other parts get overwhelmed and so on.</li>
+<li>You need to start with a complete view of the problem.</li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/14.png?featherlight=false&width=40pc"></p>
+<ul>
+<li>This is a reminder to always be monitoring and looking to improve the whole performance of the system</li>
+<li>Don&rsquo;t spend too much time on the parts that aren&rsquo;t most of the problem</li>
+<li>The lean adage, see the whole, is especially important to performance. You need to understand what you&rsquo;re optimizing and why. - Tie this to business goals or dollars as much as possible.</li>
+<li>Start with the most important things and the largest source of delay in those things, then you can apply all your hard-won technical know-how to that to get the most bang for your buck.</li>
+<li>Good monitoring instrumentation is important to help you distinguish how your systems, network and applications contribute to your overall performance.</li>
+<li><strong>Transaction tracing</strong> is one important tool. Once found only in expensive application performance management tools, there are now open-source tools like OpenTrace and Zipkin that can trace the entire path of a given request through your system.</li>
+<li>Performance engineering is where you need the most in-depth highest-resolution data.
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/15.png?featherlight=false&width=40pc"></li>
+</ul>
+<h4 id="10-capacity-and-scalability">10. Capacity and scalability</h4>
+<ul>
+<li>There comes a time when you need to serve more users, more hits and more data, and you can&rsquo;t just make due with less. As you grow, you&rsquo;re faced with a challenge of scaling your systems to keep up. - And that&rsquo;s a more multidimensional problem
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/16.png?featherlight=false&width=40pc"></li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/17.png?featherlight=false&width=40pc"></p>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/18.png?featherlight=false&width=40pc"></p>
+<ul>
+<li>Everything&rsquo;s available in the cloud. I haven&rsquo;t used physical infrastructure since 2014. While a given cloud server is slightly more expensive than running the hardware yourself, the ability to perform short-term scaling, and the better controls you have around configuration billing and so on make for a much better capacity, and scalability story</li>
+</ul>
+<h4 id="11-distributed-design">11. Distributed design</h4>
+<ul>
+<li>Designing applications is a big topic that&rsquo;s near and dear to our hearts. - To do it right, you first need to understand that there&rsquo;s a difference between science and engineering.</li>
+<li>These are 12 factors that make for a successful distributed application, including how to manage external dependencies, how to store state, and how to scale.</li>
+</ul>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/19.png?featherlight=false&width=40pc">
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/20.png?featherlight=false&width=40pc"></p>
+<ul>
+<li>Here&rsquo;s one example. Take a service that starts to experience timeouts from one of its backends
+<ul>
+<li>The requests keep coming in, and the service has more and more slow pending requests until it finally gets overloaded and it crashes.</li>
+<li>Or even worse, you detect that slow performance and deliberately scale up your front end tier as a result, which puts even more load on the backend, virtually guaranteeing that it&rsquo;ll be overloaded and crash even more quickly</li>
+<li>This deliberately returns errors quickly if it&rsquo;s backend goes over a certain error level to avoid failure.</li>
+</ul>
+</li>
+<li>That&rsquo;s right. <strong>Observability</strong> means that your service is clearly presenting what&rsquo;s going on with it. In other words, it&rsquo;s logging useful things, and emitting metrics, and maybe has a status endpoint that expresses what&rsquo;s going on with it.</li>
+<li>Exactly. Then controllability is your ability to control the state of your service. - Being able to pause and resume your apps processing, or turn features on and off with feature flags at runtime</li>
+</ul>
+<h4 id="12-deliberate-adversity">12. Deliberate adversity</h4>
+<ul>
+<li>
+<p>If it hurts, do it more often. - You sound like that annoying guy at the gym. Can we just skip this one? - No way. While yes, the proverbial wisdom is true for building muscle, it&rsquo;s also true for systems</p>
+</li>
+<li>
+<p>In 2011, Netflix captured the DevOps world&rsquo;s attention when they released the Chaos Monkey</p>
+<ul>
+<li>I remember that it was a really radical approach at the time.</li>
+<li>Their goal was to improve service stability and increase fault tolerance by injecting failure into the system. The thinking here was pretty simple.
+<ul>
+<li>Netflix allowed developers to have autonomy in architecting and building services however they wanted.</li>
+<li>So to make sure that they were building services and applications that could handle failures from the cloud provider, they would randomly delete services during normal business hours.</li>
+</ul>
+</li>
+<li>This has become part of the Netflix culture, and they&rsquo;ve released an entire genre of open-source tooling around this that they brand as the Simian Army.</li>
+<li>Other tools in the Simian Army include Chaos Gorilla, which will terminate entire Amazon region, and Latency Monkey, which adds in artificial delays to simulate service degradation</li>
+<li>These tools function as adding deliberate chaos and adversity into the systems. These tools force developers to create services that can withstand this adversity.</li>
+<li>One of the recommended ways to do this is to think in terms of chaos experiments. - You make a hypothesis, and then take observations to prove whether your hypothesis was correct or not. - Yeah, you could easily call what Chaos Monkey did a chaos experiment</li>
+</ul>
+</li>
+<li>
+<p><strong>Example</strong>:  I remember once working on a project, and we were building an API that accepted design files, and then they would get processed on the back end. Most of these files were pretty small. So I asked the developer, hey, what if I sent you a two gigabyte file? - Oh no. - Yeah, we did it, you know, and I was able to crash the whole service as it caused a cascading failure, where one node would fail, and then the next node would pick it up and then that would fail, and then the next. We found several bugs that day and implemented a circuit breaker pattern. <strong>Chaos engineering</strong> is best done in this fashion of experimentation.</p>
+</li>
+<li>
+<p>Chaos engineering is a new discipline, and it&rsquo;s one that can really pay off. - Right, you know, how often does Netflix go down? It&rsquo;s not that often. - Being mean to your code and doing hard things more often actually does make your service more resilient and more reliable for your customers.</p>
+</li>
+</ul>
+<h4 id="sre-organizaion">SRE Organizaion</h4>
+<h4 id="1-organizing-sres">1. Organizing SREs</h4>
+<ul>
+<li>
+<p>Remember Conway&rsquo;s law, how you organize definitely has an impact on how your systems turn out.
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/21.png?featherlight=false&width=40pc"></p>
+</li>
+<li>
+<p>Here&rsquo;s some models we&rsquo;ve seen work to organize for this approach. At one company, we actually tried a couple different models.</p>
+<ul>
+<li>So we started with the traditional separate ops team model. It&rsquo;s very hard to break traditional expectations while maintaining this model.
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/24.png?featherlight=false&width=40pc"></li>
+<li>People love to assign work tickets to the group and this organizational silo also forms a barrier to collaboration. And it&rsquo;s probably even harder to break the habits of operation engineers without a change.
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/22.png?featherlight=false&width=40pc"></li>
+<li>So then we declared the death of the ops team and changed to embedding operations engineers into every product team but still reporting up to a central manager. This lets the team work at its own pace without being blocked on a central team and injects them with some operational knowledge.
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/23.png?featherlight=false&width=40pc"></li>
+</ul>
+</li>
+<li>
+<p>So which setup is best? - That&rsquo;s a trick question. There&rsquo;s no single best. There&rsquo;s what works best given the constraints that you have. But don&rsquo;t artificially limit yourself. You can iterate towards a more successful model no matter where you start out originally</p>
+</li>
+</ul>
+<h4 id="2-the-softer-side-of-sre">2. The softer side of SRE</h4>
+<p>The softer side of SRE</p>
+<ul>
+<li>
+<p>Time Management for System Administrators by Thomas Limoncelli –
+<a href="http://shop.oreilly.com/product/9780596007836.do">http://shop.oreilly.com/product/9780596007836.do</a></p>
+</li>
+<li>
+<p>Pragmatic Thinking and Learning by Andy Hunt –
+<a href="https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning">https://pragprog.com/book/ahptl/pragmatic-thinking-and-learning</a></p>
+</li>
+</ul>
+<h4 id="conclusion">Conclusion</h4>
+<p>Learn links: <a href="https://www.linkedin.com/learning/devops-foundations-site-reliability-engineering/the-softer-side-of-sre-14766859?resume=false&u=103729754">https://www.linkedin.com/learning/devops-foundations-site-reliability-engineering/the-softer-side-of-sre-14766859?resume=false&u=103729754</a></p>
+<p>Release It! by Michael Nygard – <a href="https://pragprog.com/book/mnee2/release-it-second-edition">https://pragprog.com/book/mnee2/release-it-second-edition</a></p>
+<ul>
+<li>Other links: <a href="https://pragprog.com/titles/mnee2/release-it-second-edition/">https://pragprog.com/titles/mnee2/release-it-second-edition/</a></li>
+</ul>
+<p>Site Reliability Engineering: <a href="https://sre.google/books/">https://sre.google/books/</a></p>
+<p><img alt="51" src="/thedevops/images/5-learn/5.1-sre/25.png?featherlight=false&width=40pc">
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/26.png?featherlight=false&width=40pc">
+<img alt="51" src="/thedevops/images/5-learn/5.1-sre/27.png?featherlight=false&width=40pc"></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/thedevops/5-learn/" title="Learn"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/thedevops/1-intro/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/thedevops/js/clipboard.min.js?1714642016"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714642016"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714642016"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714642016"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714642016"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714642016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714642016"></script>
+    <script src="/thedevops/js/learn.js?1714642016"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714642016"></script>
+
+    <link href="/thedevops/mermaid/mermaid.css?1714642016" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714642016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

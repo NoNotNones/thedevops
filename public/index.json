@@ -49,6 +49,13 @@
 	"content": "DevOps Projects Overview Continuous Integration and Continuous Deployment (CI/CD) is a cornerstone of DevOps methodology, emphasizing automation and collaboration throughout the software development lifecycle.\nContinuous Integration (CI): Developers regularly push code changes to a shared repository. Automated tests are run against the newly integrated code to ensure it doesn\u0026rsquo;t break existing functionality. If tests fail, developers are notified immediately, and they can address issues before they become larger problems. Continuous Deployment (CD): Once code changes pass the CI phase, they\u0026rsquo;re automatically deployed to production or staging environments. This process reduces manual intervention and ensures that new features or bug fixes reach users as quickly as possible. Content Introduction Prepairation Configure Cleanup "
 },
 {
+	"uri": "http://localhost:1313/thedevops/5-learn/5.1-sre/",
+	"title": "SRE",
+	"tags": [],
+	"description": "",
+	"content": "Overview "
+},
+{
 	"uri": "http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/",
 	"title": "Workflow",
 	"tags": [],
@@ -81,7 +88,7 @@
 	"title": "Backend",
 	"tags": [],
 	"description": "",
-	"content": "Project workflow Tools Edit \u0026amp; configure files Install \u0026amp; configure Database Build Run Check status Configuration Source: shoeshop-ecommerce.zip\nUser: shoeshop\nJava project folder: /projects/shoeshop\nFolder and User permisson: adduser shoeshop\rchown -R shoeshop. /projects/shoeshop/\rchmod -R 750 /projects/shoeshop/ Requires tools: https://spring.io/guides/gs/maven Maven: defined with an XML file named pom.xml\nJava:\nChecking require java version in pom.xml -\u0026gt; java.version=1.8 Install:\napt install openjdk-17-jdk openjdk-17-jre\rapt install maven\rjava -version\rmvn -v Configuring Database Spring boot: https://www.baeldung.com/spring-boot-configure-data-source-programmatic\nDataSource: application.properties Install Database: MariaDB apt install mariadb-server\rnetstat -tlpun Database should install in difference Server\nConfigure DB: systemctl stop mariadb\rls /etc/mysql/ nano /etc/mysql/mariadb.conf.d/50-server.cnf\nbin-address = 0.0.0.0 systemctl restart mariadb\rnetstat -tlpun mysq -u root\nshow databases;\rcreate database shoeshop;\rcreate user \u0026#39;shoeshop\u0026#39;@%\u0026#39;identified by \u0026#39;shoeshop\u0026#39;;\rgrant all privileges on shoeshop.* to \u0026#39;shoeshop\u0026#39;@\u0026#39;%\u0026#39;;\rflush privileges;\rexit mysq -h 192.168.33.110 -P 3306 -u shoeshop\nshow databases;\ruse shoeshop;\rshow tables;\rsource /projects/shoeshop/shoeshopdb.sql\rshow tables;\rexit vi /src/main/resources/application.properties\nspring.datasource.url=jdbc:mysql://192.168.33.110:3306/shoeshop\rspring.datasource.username=shoeshop\rspring.datasource.password=shoeshop mvn install -DskipTest=true\nls target/\njava -jar target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar nohup java -jar target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar 2\u0026gt;\u0026amp;1 \u0026amp; tail -f nohup.out\nCheck: http://192.168.33.110:8080 "
+	"content": "Project workflow Tools Edit \u0026amp; configure files Install \u0026amp; configure Database Build Run Check status Configuration Source: shoeshop-ecommerce.zip\nUser: shoeshop\nJava project folder: /projects/shoeshop\nFolder and User permisson: adduser shoeshop\rchown -R shoeshop. /projects/shoeshop/\rchmod -R 750 /projects/shoeshop/ Requires tools: https://spring.io/guides/gs/maven Maven: defined with an XML file named pom.xml\nJava:\nChecking require java version in pom.xml -\u0026gt; java.version=1.8 Install:\napt install openjdk-17-jdk openjdk-17-jre\rapt install maven\rjava -version\rmvn -v Configuring Database Spring boot: https://www.baeldung.com/spring-boot-configure-data-source-programmatic\nDataSource: application.properties Install Database: MariaDB apt install mariadb-server\rnetstat -tlpun Database should install in difference Server\nConfigure DB: systemctl stop mariadb\rls /etc/mysql/ nano /etc/mysql/mariadb.conf.d/50-server.cnf\nbin-address = 0.0.0.0 systemctl restart mariadb\rnetstat -tlpun Create Database: import shoe_shopdb.sql to MariaDB mysql -u root\nshow databases: show databases; Create datatabse: Database and User user: shoeshop @%: can access all server identified: password grant: permission for shoeshop apply to all resource flush privileges: save changes show databases;\rcreate database shoeshop;\rcreate user \u0026#39;shoeshop\u0026#39;@%\u0026#39;identified by \u0026#39;shoeshop\u0026#39;;\rgrant all privileges on shoeshop.* to \u0026#39;shoeshop\u0026#39;@\u0026#39;%\u0026#39;;\rflush privileges;\rexit Login user shoeshop: mysql -h 192.168.33.110 -P 3306 -u shoeshop h: host p: port u: user show databases;\ruse shoeshop;\rshow tables;\rsource /projects/shoeshop/shoeshopdb.sql\rshow tables;\rexit vi /src/main/resources/application.properties\nspring.datasource.url=jdbc:mysql://192.168.33.110:3306/shoeshop\rspring.datasource.username=shoeshop\rspring.datasource.password=shoeshop mvn install -DskipTest=true\nls target/\njava -jar target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar nohup java -jar target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar 2\u0026gt;\u0026amp;1 \u0026amp; tail -f nohup.out\nCheck: http://192.168.33.110:8080 "
 },
 {
 	"uri": "http://localhost:1313/thedevops/3-config/3.2-cicd/",
@@ -194,6 +201,13 @@
 	"tags": [],
 	"description": "",
 	"content": "We are processing \u0026hellip;.\n"
+},
+{
+	"uri": "http://localhost:1313/thedevops/5-learn/",
+	"title": "Learn",
+	"tags": [],
+	"description": "",
+	"content": "Processing \u0026hellip;\nContent SRE CICD "
 },
 {
 	"uri": "http://localhost:1313/thedevops/2-prepair/2.5-local/",

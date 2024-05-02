@@ -16,6 +16,8 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/1-intro/</loc>
   </url><url>
+    <loc>http://localhost:1313/thedevops/5-learn/5.1-sre/</loc>
+  </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.1-zabbix/</loc>
@@ -57,6 +59,8 @@
     <loc>http://localhost:1313/thedevops/4-cleanup/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/4-cleanup/4.2-jenkins/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/5-learn/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.5-local/</loc>
   </url><url>
