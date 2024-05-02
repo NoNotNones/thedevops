@@ -20,6 +20,8 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.1-workflow/</loc>
   </url><url>
+    <loc>http://localhost:1313/thedevops/5-learn/5.3-github/5.3.1-workflow/</loc>
+  </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.1-zabbix/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.1-jenkins/3.3.1.2-advanced/</loc>
@@ -30,6 +32,8 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.2-cicd/</loc>
   </url><url>
+    <loc>http://localhost:1313/thedevops/5-learn/5.2-iac/</loc>
+  </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.2-prometheus/</loc>
@@ -39,6 +43,8 @@
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.2-gitlab/3.3.2.3-cicd/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/5-learn/5.3-github/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.3-labs/3.3.3-monitor/3.3.3.3-grafana/</loc>
   </url><url>

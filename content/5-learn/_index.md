@@ -11,6 +11,6 @@ Processing ...
 ## Content
 
 1. [SRE](5.1-sre/)
-2. [CICD](5.2-jenkins/)
-
+2. [IaC](5.2-iac/)
+2. [Github](5.3-github/)
 
