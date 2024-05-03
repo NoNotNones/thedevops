@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 6. </b> "
 ---
 
-Devops projects are processing ....
+Devops projects are processing .....
 
 #### Content
 
