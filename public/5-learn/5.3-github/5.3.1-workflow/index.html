@@ -12,21 +12,21 @@
     <title>Workflow :: </title>
 
     
-    <link href="/thedevops/css/nucleus.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/fontawesome-all.min.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/hybrid.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/featherlight.min.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/perfect-scrollbar.min.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/auto-complete.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/theme.css?1714697862" rel="stylesheet">
-    <link href="/thedevops/css/hugo-theme.css?1714697862" rel="stylesheet">
+    <link href="/thedevops/css/nucleus.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714729532" rel="stylesheet">
     
-    <link href="/thedevops/css/theme-workshop.css?1714697862" rel="stylesheet">
+    <link href="/thedevops/css/theme-workshop.css?1714729532" rel="stylesheet">
     
     
 
-    <script src="/thedevops/js/jquery-3.3.1.min.js?1714697862"></script>
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714729532"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714697862"></script>
-<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714697862"></script>
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714729532"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714729532"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/thedevops\/";
     
 </script>
-<script type="text/javascript" src="/thedevops/js/search.js?1714697862"></script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714729532"></script>
 
     
   </div>
@@ -1187,6 +1187,34 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/thedevops/5-learn/5.3-github/5.3.2-challenge/" title="Challenge" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/thedevops/5-learn/5.3-github/5.3.2-challenge/">
+           <b> 5.3.2 </b> Challenge
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -1324,7 +1352,6 @@
     <li>
       <ul>
         <li></li>
-        <li><a href="#content">Content</a></li>
       </ul>
     </li>
   </ul>
@@ -1422,7 +1449,307 @@ jobs:
 <pre tabindex="0"><code>git add first.yml
 git commit -m &#34;First commit&#34;
 git push
-</code></pre><h3 id="content">Content</h3>
+</code></pre><p><img alt="53" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/15.png?featherlight=false&width=50pc"></p>
+<p>Adding Dependencies</p>
+<ul>
+<li>needs: Identifies one or more jobs that must complete successfully before a job will run</li>
+</ul>
+<p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/4.png?featherlight=false&width=40pc"></p>
+<p>Add conditionals
+<img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/5.png?featherlight=false&width=40pc"></p>
+<p>Workflow and Action Limitations</p>
+<ul>
+<li>1000 API requests per hour</li>
+<li>Acction cant trigger other workflows</li>
+<li>Logs are limited to 64KB</li>
+<li>Exceeding limits can cause
+<ul>
+<li>Job queueing</li>
+<li>Failed jobs</li>
+</ul>
+</li>
+<li>Limits are subject to change</li>
+</ul>
+<p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/6.png?featherlight=false&width=40pc"></p>
+<h4 id="using-actions">Using Actions</h4>
+<p>Use an action from the Marketplace</p>
+<ul>
+<li>
+<p>Maketplace : Python Syntax Checker (copy &amp; paste to .yml file)</p>
+</li>
+<li>
+<p>Python file: <strong>100daysofcode.py</strong></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> date
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start <span style="color:#f92672">=</span> date(<span style="color:#ae81ff">2020</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>today <span style="color:#f92672">=</span> date<span style="color:#f92672">.</span>today()
+</span></span><span style="display:flex;"><span>delta <span style="color:#f92672">=</span> today <span style="color:#f92672">-</span> start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (delta<span style="color:#f92672">.</span>days <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">101</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Today is day </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(delta<span style="color:#f92672">.</span>days))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;100 Days of Code sprint has ended&#39;</span>)
+</span></span></code></pre></div><ul>
+<li>Github action file: <strong>syntax-check.yml</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>name: Python application
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>on: <span style="color:#f92672">[</span>push<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  build:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-latest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>    - name: Check out the code
+</span></span><span style="display:flex;"><span>      uses: actions/checkout@v2
+</span></span><span style="display:flex;"><span>    - name: Python Syntax Checker
+</span></span><span style="display:flex;"><span>      uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
+</span></span></code></pre></div><ul>
+<li>Workflow:
+<img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/8.png?featherlight=false&width=50pc"></li>
+</ul>
+<p>Use an action from a repository</p>
+<ul>
+<li>Actions in the workflow&rsquo;s repo</li>
+<li>Actions in any public repository</li>
+<li>Docker images from an image registry</li>
+<li>Use an Action in the same Repo
+<ul>
+<li>Specify any path relative to the repository root</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>steps:
+</span></span><span style="display:flex;"><span>      - uses: <span style="color:#e6db74">&#34;./.github/action1&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Use an Action in a Different repo
+<ul>
+<li>Specify the repo  owner&rsquo;s user ID, the repo, and a reference</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>steps:
+</span></span><span style="display:flex;"><span>      - uses: <span style="color:#e6db74">&#34;user/reoi@ref&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Reference can be a branch, tag, or SHA</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>steps:
+</span></span><span style="display:flex;"><span>      - uses: <span style="color:#e6db74">&#34;user/repo/path@ref&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>steps:
+</span></span><span style="display:flex;"><span>      - name: Octocat<span style="color:#960050;background-color:#1e0010">&#39;</span>s Cool Action
+</span></span><span style="display:flex;"><span>    uses: <span style="color:#e6db74">&#34;octocat/my-cool-action@develop&#34;</span>
+</span></span></code></pre></div><p>Use an Action from an Image Repo</p>
+<ul>
+<li>Specify the &ldquo;docker://&rdquo; path to the image and tag</li>
+</ul>
+<pre tabindex="0"><code>steps:
+  - uses: &#34;docker://image:tag&#34;
+</code></pre><ul>
+<li>Docker Hub is used by defacult: <a href="https://hub.docker.com">https://hub.docker.com</a></li>
+</ul>
+<pre tabindex="0"><code>steps:
+  - uses: &#34;docker://python:3.9&#34;
+</code></pre><pre tabindex="0"><code>steps:
+  - uses: &#34;docker://host/image:tag&#34;
+</code></pre><p>Passing Arguments to an Action</p>
+<ul>
+<li>
+<p>Steps use the attribute to pass arguments</p>
+</li>
+<li>
+<p>Create a new block for mapping arguments to unputs</p>
+</li>
+</ul>
+<pre tabindex="0"><code>uses: {github account}/{action name}
+with:
+        key:value
+        key:value
+</code></pre><pre tabindex="0"><code>steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+            repository: apache/tomcat
+            ref: master
+            path: ./tomcat
+</code></pre><p>Using environment variables</p>
+<ul>
+<li>Dynamimc key value pairs stored in memory</li>
+<li>Injected at runtime</li>
+<li>Case sensitive</li>
+</ul>
+<p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/9.png?featherlight=false&width=50pc"></p>
+<ul>
+<li>Defining Environment Variables
+<ul>
+<li>Use the env attribute</li>
+<li>Defined in:
+<ul>
+<li>Workflows</li>
+<li>Jobs</li>
+<li>Steps</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/10.png?featherlight=false&width=40pc"></p>
+<ul>
+<li>Accessing Environment Variables
+<ul>
+<li>
+<p>Shell variable syntax</p>
+<ul>
+<li>Bash (linux/macOS)
+<ul>
+<li>$VARIABLE_NAME</li>
+</ul>
+</li>
+<li>PowerShell (Windows)
+<ul>
+<li>$Env:VARIABLE_NAME</li>
+</ul>
+</li>
+</ul>
+<p>Variable is read from the shell</p>
+</li>
+<li>
+<p>YAML syntax</p>
+<ul>
+<li>${{ env.VARIABLE_NAME }}</li>
+</ul>
+<p>Variable is read from the shell
+Variable can be used in workflow configuration</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Using Secrets</p>
+<ul>
+<li>Stored as encrypted environment variables</li>
+<li>Cant be viewed or edited</li>
+<li>Workflows can have up to 100 secrets</li>
+<li>Secrets limited to 64kb</li>
+<li>Larger secrets can be encrypted and stored in the repo</li>
+</ul>
+<p>Accessing Secrets</p>
+<ul>
+<li>Use the secrets workflow context</li>
+<li>${{ secretts.SECRET_NAME }}</li>
+<li>Must be explicity passed to a step or action</li>
+</ul>
+<p><strong>secret.yml</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>name: secrets
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>on: <span style="color:#f92672">[</span>push<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  build:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-latest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>    - name: Configure AWS Credentials
+</span></span><span style="display:flex;"><span>      uses: aws-actions/configure-aws-credentials@v1
+</span></span><span style="display:flex;"><span>      with:
+</span></span><span style="display:flex;"><span>        aws-access-key-id: <span style="color:#e6db74">${</span>{ secrets.AWS_ACCESS_KEY_ID <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        aws-secret-access-key: <span style="color:#e6db74">${</span>{ secrets.AWS_SECRET_ACCESS_KEY <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        aws-region: <span style="color:#e6db74">${</span>{ secrets.AWS_REGION <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    - name: List S3 Buckets
+</span></span><span style="display:flex;"><span>      run: aws s3api list-buckets
+</span></span></code></pre></div><p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/11.png?featherlight=false&width=40pc"></p>
+<p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/12.png?featherlight=false&width=40pc"></p>
+<p>Using <strong>artifacts</strong></p>
+<ul>
+<li>
+<p>Data preserved from a workflow</p>
+</li>
+<li>
+<p>Files or collection of files</p>
+<ul>
+<li>Compiled binaries</li>
+<li>Archives</li>
+<li>Test results</li>
+<li>Log files</li>
+</ul>
+</li>
+<li>
+<p>Pass data between workflow jobs</p>
+<ul>
+<li>Job 1 - Create and upload artifact</li>
+<li>Job 2
+<ul>
+<li>Wait for Job 1 to complete</li>
+<li>Download and use artifact</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Can only be uploaded by a workflow</p>
+<ul>
+<li>actions/upload-artifact</li>
+</ul>
+</li>
+<li>
+<p>Can only downloaded by the uploading workflow</p>
+</li>
+<li>
+<p>Manual downloads</p>
+</li>
+<li>
+<p>Free accounts get 500MB for storage</p>
+</li>
+<li>
+<p>Stored for 90 days</p>
+</li>
+<li>
+<p>For pull requests, retention period resets on pushes</p>
+<p><a href="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/script/artifact.txt">artifact.yml</a></p>
+<p><a href="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/script/hello-server.go">hello-server.go</a></p>
+<p><a href="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/script/test.sh">test.sh</a></p>
+</li>
+</ul>
+<p>Manage pull requests</p>
+<ul>
+<li>Pull requests
+<ul>
+<li>Pull facilitated conversations around code</li>
+<li>Merge code from one branch to another branch</li>
+<li>Merge code from a cloned repo into the original repo</li>
+<li>Allows for code reviews</li>
+</ul>
+</li>
+<li>Automatin Pull-Request Merging
+<ul>
+<li>Automatic approve and merge PRs based on criteria</li>
+<li>Run automated tests to check the code in the PR</li>
+<li>Check the username that submitted the PR</li>
+<li>Approve and merge the PR</li>
+<li>Delete the branch associated with the PR</li>
+</ul>
+</li>
+</ul>
+<h4 id="developing-a-cicd-workflow"><em>Developing a CI/CD Workflow</em></h4>
+<p>Continous Integration</p>
+<ul>
+<li>Find and resolve problems early</li>
+<li>Work locally and then commit to repo</li>
+</ul>
+<p>Continous Delivery and Deployment</p>
+<ul>
+<li>Compiled into artifacts</li>
+<li>Stored</li>
+<li>Additional tests</li>
+<li>Ready for deployment</li>
+<li>Deploy to live environments</li>
+</ul>
+<p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/16.png?featherlight=false&width=40pc"></p>
+<p><a href="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/script/04_01">Lab</a></p>
+<h4 id="content">Content</h4>
 <ol>
 <li><a href="3.3.1.1-cicd/">Jenkins CICD</a></li>
 <li><a href="3.3.1.2-advanced/">Advanced</a></li>
@@ -2063,6 +2390,25 @@ git push
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -2081,7 +2427,7 @@ git push
 			<a class="nav nav-prev" href="/thedevops/5-learn/5.3-github/" title="GitHub"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/thedevops/5-learn/5.1-sre/" title="SRE" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/thedevops/5-learn/5.3-github/5.3.2-challenge/" title="Challenge" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2091,19 +2437,19 @@ git push
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/thedevops/js/clipboard.min.js?1714697862"></script>
-    <script src="/thedevops/js/perfect-scrollbar.min.js?1714697862"></script>
-    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714697862"></script>
-    <script src="/thedevops/js/jquery.sticky.js?1714697862"></script>
-    <script src="/thedevops/js/featherlight.min.js?1714697862"></script>
-    <script src="/thedevops/js/highlight.pack.js?1714697862"></script>
+    <script src="/thedevops/js/clipboard.min.js?1714729532"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714729532"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714729532"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714729532"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714729532"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714729532"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714697862"></script>
-    <script src="/thedevops/js/learn.js?1714697862"></script>
-    <script src="/thedevops/js/hugo-learn.js?1714697862"></script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714729532"></script>
+    <script src="/thedevops/js/learn.js?1714729532"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714729532"></script>
 
-    <link href="/thedevops/mermaid/mermaid.css?1714697862" rel="stylesheet" />
-    <script src="/thedevops/mermaid/mermaid.js?1714697862"></script>
+    <link href="/thedevops/mermaid/mermaid.css?1714729532" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714729532"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
