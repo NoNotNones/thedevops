@@ -110,7 +110,7 @@ Workflow and Action Limitations
 
 ![531](/thedevops/images/5-learn/5.3-github/5.3.1-workflow/6.png?featherlight=false&width=40pc)
 
-#### Using Actions
+#### *Using Actions*
 
 Use an action from the Marketplace
 - Maketplace : Python Syntax Checker (copy & paste to .yml file)
@@ -342,9 +342,46 @@ Continous Delivery and Deployment
 
 ![531](/thedevops/images/5-learn/5.3-github/5.3.1-workflow/16.png?featherlight=false&width=40pc)
 
-[Lab](/thedevops/images/5-learn/5.3-github/5.3.1-workflow/script/04_01)
 
-#### Content
+![531](/thedevops/images/5-learn/5.3-github/5.3.1-workflow/17.png?featherlight=false&width=40pc)
 
-1. [Jenkins CICD](3.3.1.1-cicd/)
-2. [Advanced](3.3.1.2-advanced/)
+[Configure files link](https://github.com/NoNotNones/thedevops/tree/main/static/images/5-learn/5.3-github/5.3.1-workflow/script/04_01)
+
+Linting and Unit test
+- Linting:
+  - Enfore coding standards
+  - Improve code quality
+  - Catch errors early in the design cycle
+- Unit Tests:
+  - First tests run
+  - Checks code at the component level
+  - Exposes problems closer to the code
+  - Fast running
+
+Check: **pipeline.yml**
+````sh
+name: Pipeline
+
+on: [push]
+env:
+  APPLICATION_NAME: app2
+jobs:
+  lint:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Python environment
+      uses: actions/setup-python@v1.1.1
+    - name: Install requirements
+      run: pip install --quiet --requirement requirements.txt
+    - name: Lint code
+      run: |
+        flake8 --ignore=E501,E231 *.py
+        pylint --disable=C0301 --disable=C0326 *.py
+    - name: Run unit tests
+      run: |
+        python -m unittest --verbose --failfast
+````
+
+![531](/thedevops/images/5-learn/5.3-github/5.3.1-workflow/18.png?featherlight=false&width=50pc)
+

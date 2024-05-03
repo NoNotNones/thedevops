@@ -12,21 +12,21 @@
     <title>Workflow :: </title>
 
     
-    <link href="/thedevops/css/nucleus.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/fontawesome-all.min.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/hybrid.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/featherlight.min.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/perfect-scrollbar.min.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/auto-complete.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/theme.css?1714729532" rel="stylesheet">
-    <link href="/thedevops/css/hugo-theme.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/nucleus.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/fontawesome-all.min.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/hybrid.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/featherlight.min.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/perfect-scrollbar.min.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/auto-complete.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/atom-one-dark-reasonable.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/theme.css?1714730444" rel="stylesheet">
+    <link href="/thedevops/css/hugo-theme.css?1714730444" rel="stylesheet">
     
-    <link href="/thedevops/css/theme-workshop.css?1714729532" rel="stylesheet">
+    <link href="/thedevops/css/theme-workshop.css?1714730444" rel="stylesheet">
     
     
 
-    <script src="/thedevops/js/jquery-3.3.1.min.js?1714729532"></script>
+    <script src="/thedevops/js/jquery-3.3.1.min.js?1714730444"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714729532"></script>
-<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714729532"></script>
+<script type="text/javascript" src="/thedevops/js/lunr.min.js?1714730444"></script>
+<script type="text/javascript" src="/thedevops/js/auto-complete.js?1714730444"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/thedevops\/";
     
 </script>
-<script type="text/javascript" src="/thedevops/js/search.js?1714729532"></script>
+<script type="text/javascript" src="/thedevops/js/search.js?1714730444"></script>
 
     
   </div>
@@ -1471,7 +1471,7 @@ git push
 <li>Limits are subject to change</li>
 </ul>
 <p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/6.png?featherlight=false&width=40pc"></p>
-<h4 id="using-actions">Using Actions</h4>
+<h4 id="using-actions"><em>Using Actions</em></h4>
 <p>Use an action from the Marketplace</p>
 <ul>
 <li>
@@ -1748,12 +1748,49 @@ Variable can be used in workflow configuration</p>
 <li>Deploy to live environments</li>
 </ul>
 <p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/16.png?featherlight=false&width=40pc"></p>
-<p><a href="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/script/04_01">Lab</a></p>
-<h4 id="content">Content</h4>
-<ol>
-<li><a href="3.3.1.1-cicd/">Jenkins CICD</a></li>
-<li><a href="3.3.1.2-advanced/">Advanced</a></li>
-</ol>
+<p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/17.png?featherlight=false&width=40pc"></p>
+<p><a href="https://github.com/NoNotNones/thedevops/tree/main/static/images/5-learn/5.3-github/5.3.1-workflow/script/04_01">Configure files link</a></p>
+<p>Linting and Unit test</p>
+<ul>
+<li>Linting:
+<ul>
+<li>Enfore coding standards</li>
+<li>Improve code quality</li>
+<li>Catch errors early in the design cycle</li>
+</ul>
+</li>
+<li>Unit Tests:
+<ul>
+<li>First tests run</li>
+<li>Checks code at the component level</li>
+<li>Exposes problems closer to the code</li>
+<li>Fast running</li>
+</ul>
+</li>
+</ul>
+<p>Check: <strong>pipeline.yml</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>name: Pipeline
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>on: <span style="color:#f92672">[</span>push<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>env:
+</span></span><span style="display:flex;"><span>  APPLICATION_NAME: app2
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  lint:
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-18.04
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>    - uses: actions/checkout@v1
+</span></span><span style="display:flex;"><span>    - name: Setup Python environment
+</span></span><span style="display:flex;"><span>      uses: actions/setup-python@v1.1.1
+</span></span><span style="display:flex;"><span>    - name: Install requirements
+</span></span><span style="display:flex;"><span>      run: pip install --quiet --requirement requirements.txt
+</span></span><span style="display:flex;"><span>    - name: Lint code
+</span></span><span style="display:flex;"><span>      run: |
+</span></span><span style="display:flex;"><span>        flake8 --ignore<span style="color:#f92672">=</span>E501,E231 *.py
+</span></span><span style="display:flex;"><span>        pylint --disable<span style="color:#f92672">=</span>C0301 --disable<span style="color:#f92672">=</span>C0326 *.py
+</span></span><span style="display:flex;"><span>    - name: Run unit tests
+</span></span><span style="display:flex;"><span>      run: |
+</span></span><span style="display:flex;"><span>        python -m unittest --verbose --failfast
+</span></span></code></pre></div><p><img alt="531" src="/thedevops/images/5-learn/5.3-github/5.3.1-workflow/18.png?featherlight=false&width=50pc"></p>
 
 
 
@@ -2437,19 +2474,19 @@ Variable can be used in workflow configuration</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/thedevops/js/clipboard.min.js?1714729532"></script>
-    <script src="/thedevops/js/perfect-scrollbar.min.js?1714729532"></script>
-    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714729532"></script>
-    <script src="/thedevops/js/jquery.sticky.js?1714729532"></script>
-    <script src="/thedevops/js/featherlight.min.js?1714729532"></script>
-    <script src="/thedevops/js/highlight.pack.js?1714729532"></script>
+    <script src="/thedevops/js/clipboard.min.js?1714730444"></script>
+    <script src="/thedevops/js/perfect-scrollbar.min.js?1714730444"></script>
+    <script src="/thedevops/js/perfect-scrollbar.jquery.min.js?1714730444"></script>
+    <script src="/thedevops/js/jquery.sticky.js?1714730444"></script>
+    <script src="/thedevops/js/featherlight.min.js?1714730444"></script>
+    <script src="/thedevops/js/highlight.pack.js?1714730444"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714729532"></script>
-    <script src="/thedevops/js/learn.js?1714729532"></script>
-    <script src="/thedevops/js/hugo-learn.js?1714729532"></script>
+    <script src="/thedevops/js/modernizr.custom-3.6.0.js?1714730444"></script>
+    <script src="/thedevops/js/learn.js?1714730444"></script>
+    <script src="/thedevops/js/hugo-learn.js?1714730444"></script>
 
-    <link href="/thedevops/mermaid/mermaid.css?1714729532" rel="stylesheet" />
-    <script src="/thedevops/mermaid/mermaid.js?1714729532"></script>
+    <link href="/thedevops/mermaid/mermaid.css?1714730444" rel="stylesheet" />
+    <script src="/thedevops/mermaid/mermaid.js?1714730444"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
