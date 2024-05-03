@@ -6,6 +6,50 @@ chapter : false
 pre : " <b> 5.3.2 </b> "
 ---
 
+#### Challenge: *Develop a CI/CD pipeline for a Python Script*
+
+
+
+#### Challenge: *Develop a workflow that creates an artifact*
+
+- Workflow file in a new repo
+- Push trigger
+- Environment variable for the artifact name
+- One job with two steps
+  - actions/checkout
+  - actions/upload-artifact
+  
+**Solution**:
+- Create repo: **artifact**
+  - add a README file
+- Add a workflow file: .github/workflows/artifact.yml
+
+````
+name: Artifact
+
+on: [push]
+
+env:
+  ARTIFACT_NAME:  myartifact
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: .
+````
+
+- Commit a new file
+- Checking Actions - Artifact file
+
+![531](/thedevops/images/5-learn/5.3-github/5.3.2-challenge/1.png?featherlight=false&width=40pc)
+
 ### Challenge: *Develop a complex workflow*
 - Push trigger
 - Multiple runners
@@ -54,43 +98,4 @@ jobs:
 
 ![531](/thedevops/images/5-learn/5.3-github/5.3.1-workflow/7.png?featherlight=false&width=50pc)
 
-#### Challenge: *Develop a workflow that creates an artifact*
-
-- Workflow file in a new repo
-- Push trigger
-- Environment variable for the artifact name
-- One job with two steps
-  - actions/checkout
-  - actions/upload-artifact
-  
-**Solution**:
-- Create repo: **artifact**
-  - add a README file
-- Add a workflow file: .github/workflows/artifact.yml
-
-````
-name: Artifact
-
-on: [push]
-
-env:
-  ARTIFACT_NAME:  myartifact
-
-jobs:
-  main:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the code
-        uses: actions/checkout@v2
-      - name: Upload the artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ env.ARTIFACT_NAME }}
-          path: .
-````
-
-- Commit a new file
-- Checking Actions - Artifact file
-
-![531](/thedevops/images/5-learn/5.3-github/5.3.2-challenge/1.png?featherlight=false&width=40pc)
 
