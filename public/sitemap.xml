@@ -24,11 +24,13 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.2-gitlab/6.2.1-workflow/</loc>
   </url><url>
+    <loc>http://localhost:1313/thedevops/6-labs/6.6-docker/6.6.1-workflow/</loc>
+  </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.3-monitor/6.3.1-zabbix/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/5-learn/5.3-github/5.3.3-advanced/</loc>
-  </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.1-jenkins/6.1.2-advanced/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/6-labs/6.6-docker/6.6.2-advanced/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.2-aws/</loc>
   </url><url>
@@ -47,6 +49,8 @@
     <loc>http://localhost:1313/thedevops/6-labs/6.3-monitor/6.3.2-prometheus/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.2-gitlab/6.2.2-runner/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/5-learn/5.3-github/5.3.3-advanced/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.2-gitlab/6.2.3-cicd/</loc>
   </url><url>
@@ -77,6 +81,8 @@
     <loc>http://localhost:1313/thedevops/6-labs/6.5-linux/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.5-local/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/6-labs/6.6-docker/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/</loc>
   </url><url>

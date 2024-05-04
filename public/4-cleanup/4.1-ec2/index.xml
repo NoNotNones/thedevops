@@ -4,7 +4,7 @@
     <title>IaC on </title>
     <link>http://localhost:1313/thedevops/4-cleanup/4.1-ec2/</link>
     <description>Recent content in IaC on </description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="http://localhost:1313/thedevops/4-cleanup/4.1-ec2/index.xml" rel="self" type="application/rss+xml" />
   </channel>

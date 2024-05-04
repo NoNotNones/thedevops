@@ -14,3 +14,5 @@ Devops projects are processing .....
 2. [GitLab](6.2-gitlab/)
 3. [Monitoring](6.3-monitor/)
 4. [Security](6.4-Security/)
+4. [Linux](6.5-Linux/)
+4. [Docker](6.6-Docker/)
