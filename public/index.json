@@ -35,6 +35,13 @@
 	"content": "Overview Vagrant and Oracle VM Vitualbox Manager\nConfiguration Server name: machine1 - IP: 192.168.6.100\nPS D:\\LAB\\Vagrant\u0026gt; vagrant up machine1\rvagrant ssh machine1 Copy source to machine: scp -i d:\\LAB\\Vagrant\\.vagrant\\machines\\machine1\\virtualbox\\private_key \\LAB\\Vagrant\\datas\\todolist.zip vagrant@192.168.6.100:/home/vagrant Setup: sudo -i\rapt update\rapt install unzip\runzip todolist.zip\rmkdir /projects\rmv todolist /projects\rls -l /projects Add user for project: adduser todolist\rchown -R todolist:todolist /projects/todolist\rchmod -R 750 /projects/todolist Run Project: VUE Source :\nhttps://vuejs.org/guide/quick-start Prerequisites: Node.js - https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04 Install Aplication\napt update\rapt install nodejs\rapt install npm Configure foler and user\nsudo todolist\rcd /projects/todolist Review configure file:\npackage.json {\r\u0026#34;name\u0026#34;: \u0026#34;todolist\u0026#34;,\r\u0026#34;version\u0026#34;: \u0026#34;0.1.0\u0026#34;,\r\u0026#34;private\u0026#34;: true,\r\u0026#34;scripts\u0026#34;: {\r\u0026#34;serve\u0026#34;: \u0026#34;vue-cli-service serve\u0026#34;, \u0026#34;build\u0026#34;: \u0026#34;vue-cli-service build\u0026#34;\r},\r\u0026#34;dependencies\u0026#34;: {\r\u0026#34;bootstrap-vue\u0026#34;: \u0026#34;^2.22.0\u0026#34;,\r\u0026#34;core-js\u0026#34;: \u0026#34;^3.8.3\u0026#34;,\r\u0026#34;vue\u0026#34;: \u0026#34;^2.6.14\u0026#34;,\r\u0026#34;vue-router\u0026#34;: \u0026#34;^3.5.1\u0026#34;\r},\r\u0026#34;devDependencies\u0026#34;: {\r\u0026#34;@vue/cli-plugin-babel\u0026#34;: \u0026#34;~5.0.0\u0026#34;,\r\u0026#34;@vue/cli-plugin-router\u0026#34;: \u0026#34;~5.0.0\u0026#34;,\r\u0026#34;@vue/cli-service\u0026#34;: \u0026#34;~5.0.0\u0026#34;,\r\u0026#34;vue-template-compiler\u0026#34;: \u0026#34;^2.6.14\u0026#34;\r},\r\u0026#34;browserslist\u0026#34;: [\r\u0026#34;\u0026gt; 1%\u0026#34;,\r\u0026#34;last 2 versions\u0026#34;,\r\u0026#34;not dead\u0026#34;\r]\r} vue.config.js const { defineConfig } = require(\u0026#39;@vue/cli-service\u0026#39;)\rmodule.exports = defineConfig({\rtranspileDependencies: true\r})\rmodule.exports = {\rdevServer: {\rport: 3000\r},\r}; Run project\nnpm install\rnpm run build ISSUE: version Fix ISSUE: Update same version or latest\ncurl -s https://deb.nodesource.com/setup_18.x | sudo bash\rsudo apt install nodejs -y\rnode -v\rnpm run build Project will build file or folder. In this project VUE will build to a folder is : dist\nWe have 3 way to run a Fontend project: Webserver - Services - Pm2\nnpm run serve Checking : http://192.168.6.100:3000/\nRun with Nginx Webserver Install\napt install nginx -y Check port\nnetstat -tlpun Configure:\nChange default nginx port to 8999: cd /etc/nginx\nvi sites-avaiable/default server {\rlisten 8999 default_server;\rlisten [::]:8999 default_server; Test and apply configure: nginx -t and systemctl restart nginx Setup Project run Nginx port 8088:\nCreate configure file: vi conf.d/todolist.conf server {\rlisten 8088;\rroot /projects/todolist/dist/;\rindex index.html;\rtry_files $uri $uri/ /index.html;\r} ISSUE: User for nginx (vi /etc/nginx.conf -\u0026gt; user www-data) Fix: add user (www-data) to group todolist\nusermod -aG todolist www-data Apply configure: systemctl restart nginx or nginx -s reload Projects React Source: vision.zip\nUser: vision\nProject folder: /projects/vision\nRun application\nnpm install Run as services: vi /lib/systemd/system/vision.service\n[Service]\rType=simple\rUser=vision\rRestart=on-failure\rWorkingDirectory=/projects/vision/\rExecStart=npm run start -- --port=3000 systemctl daemon-reload systemctl start vision systemctl status vision Check: http://192.168.6.100:3000\n"
 },
 {
+	"uri": "http://localhost:1313/thedevops/7-projects/7.1-hugo/",
+	"title": "Hugo",
+	"tags": [],
+	"description": "",
+	"content": "Overview "
+},
+{
 	"uri": "http://localhost:1313/thedevops/3-config/3.1-ec2/",
 	"title": "IaC",
 	"tags": [],
@@ -81,7 +88,7 @@
 	"title": "Workflow",
 	"tags": [],
 	"description": "",
-	"content": "Overview Docker backend:\nChọn image đúng version dự án Chọn image từ các nguồn offical, verified, sponsored Chọn base image là alpine (nhẹ) processing \u0026hellip; "
+	"content": "Overview Docker backend: Chọn image đúng version dự án Chọn image từ các nguồn offical, verified, sponsored Chọn base image là alpine (nhẹ) Project folder: /data/shoeshop\n1.Create Database:\napt install mariadb-server systemctl stop mariadb apt install net-tools nano /etc/mysql/mariadb.conf.d/50-server.cnf bin-address = 0.0.0.0 systemctl restart mariadb netstat -tlpun 2.Database configuration:\nmysql -u root\nshow databases; create database shoeshop; create user \u0026lsquo;shoeshop\u0026rsquo;@\u0026rsquo;%\u0026rsquo; identified by \u0026lsquo;shoeshop\u0026rsquo;; grant all privileges on shoeshop.* to \u0026lsquo;shoeshop\u0026rsquo;@\u0026rsquo;%\u0026rsquo;; flush privileges; exit mysql -h 192.168.33.100 -P 3306 -u shoeshop -p\nEnter password:\tshoeshop show databases; use shoeshop; show tables; source /data/shoeshop/shoe_shopdb.sql show tables; exit nano src/main/resources/application.properties\nspring.datasource.url=jdbc:mysql://192.168.33.100:3306/shoeshop spring.datasource.username=shoeshop spring.datasource.password=shoeshop vi Dockerfile\n## build stage ## FROM maven:3.5.3-jdk-8-alpine as build WORKDIR /app COPY . . RUN mvn install -DskipTest=true ## run stage ## FROM amazoncorretto:8u402-alpine-jre WORKDIR /run COPY --from=build /app/target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar /run/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar EXPOSE 8080 ENTRYPOINT java -jar /run/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar 3.Run Project:\ndocker build -t shoeshop:v1 . docker run \u0026ndash;name shoeshop -dp 8899:8080 shoeshop:v1 docker images docker ps -a Check: http://192.168.33.100:8899\n4.Advanced: nano Dockerfile-v2\n\u0026#34;## build stage ## FROM maven:3.5.3-jdk-8-alpine as build WORKDIR /app COPY . . RUN mvn install -DskipTest=true ## run stage ## FROM alpine:3.19 RUN apk add openjdk8 WORKDIR /run COPY --from=build /app/target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar /run/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar EXPOSE 8080 ENTRYPOINT java -jar /run/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar\u0026#34; 5.Advanced: User Permissons\nUser: Shoeshop\nadduser shoeshop chown -R shoeshop. /data/shoeshop/ chmod -R 750 /data/shoeshop/ Dockerfile-v3\n\u0026#34;## build stage ## FROM maven:3.5.3-jdk-8-alpine as build WORKDIR /app COPY . . RUN mvn install -DskipTest=true ## run stage ## FROM alpine:3.19 RUN adduser -D shoeshop RUN apk add openjdk8 WORKDIR /run COPY --from=build /app/target/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar /run/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar RUN chown -R shoeshop:shoeshop /run USER shoeshop EXPOSE 8080 ENTRYPOINT java -jar /run/shoe-ShoppingCart-0.0.1-SNAPSHOT.jar\u0026#34; Run project:\ndocker build -t shoeshop:v3 -f Dockerfile-v3 . docker run \u0026ndash;name shoeshop-v3 -dp 7777:8080 shoeshop:v3 docker logs shoeshop-v3 docker exec -it shoeshop-v3 sh ls -l ps -ef| grep shoe Docker Frotend 1.Project folder:\nmkdir /data/todolist apt insall unzip unzip todolist.zip cdp -rf todolist/* /data/todolist cd /data/todolist Insall npm sudo apt install npm -y Create Dockerfile ## build stage ## FROM node:18.18-alpine as build WORKDIR /app COPY . . RUN npm install RUN npm run build ## run stage ## FROM nginx:alpine RUN apk add openjdk8 WORKDIR /run COPY --from=build /app/dist /usr/share/nginx/html EXPOSE 8080 CMD [\u0026#34;nginx\u0026#34;, \u0026#34;-g\u0026#34;, \u0026#34;daemon off;\u0026#34;] Run Project docker build -t todolist:v1 . docker run \u0026ndash;name todolist-v1 -dp 6868:80 todolist:v1 http://localhost:6868 Docker Volume, Compose, Network Docker Volume\ndocker run \u0026ndash;rm -v \u0026lsquo;pwd\u0026rsquo;:/app \u0026ndash;workdir=\u0026quot;/app\u0026quot; mnv install -DskipTests=true mkdir -p /db/mariadb-1 docker run -v /db/mariadb-1/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3307:3306 \u0026ndash;name mariadb-1 -d mariadb:10.6 docker ps netstat -tlpn mysql -h 192.168.1.110 -P 3307 -u root -p MariaDB [(none)]\u0026gt; show databases; create database demo show databases; exit ls /db/mariadb-1/ Delete container images and run docker again Docker Compose\nvi docker-compose.yml version: \u0026#39;3.8\u0026#39; services: db1: image: mariadb:10.6 volumes: - /db/mariadb-1:/var/lib/mysql environment: MYSQL_ROOT_PASSWORD: root ports: - \u0026#34;3307:3306\u0026#34; container_name: mariadb-1 restart: always app-backend: image: shoeshop:v3 ports: - \u0026#34;8081:8080\u0026#34; container_name: shoeshop-1 restart: always docker-compose up -d docker-compose ps Docker Network docker inspect shoeshop-1 docker exec -it shoeshop-1 sh whoami docker exec -it mariadb-1 sh whoami apt update apt install iputils-ping -y ping 172.18.0.3 Docker Registry "
 },
 {
 	"uri": "http://localhost:1313/thedevops/6-labs/6.3-monitor/6.3.1-zabbix/",
@@ -231,6 +238,13 @@
 	"content": "Git is a distributed version control system (DVCS) that helps developers track changes to source code during software development. It allows multiple developers to collaborate on projects simultaneously.\nOverview Github GitHub is a web-based platform built on top of Git, the distributed version control system. It offers a variety of features to help developers collaborate on software projects GitHub provides a platform for hosting Git repositories. Developers can create new repositories to store their code, either publicly (visible to everyone) or privately (accessible only to authorized collaborators) Configuration Create Github Repository and Access\nCreate a public repo: https://github.com/nonotnonez/ws-0001\nCreate Github Access Key : https://github.com/settings/tokens\nName: github_token_ws Expiration:\t90 days Select scopes: repo workflow Clone Source form Github: git clone https://**token**@github.com/NoNotNonez/ws-0001.git\nCopy Source code to Github Repo:\ncd /ws-0001/terraform Create .gitignore:\nto security and prevent important file upload to github Push Source code to Git Repo:\ngit status git add . git commit -m \u0026ldquo;Add Tf source\u0026rdquo; git push "
 },
 {
+	"uri": "http://localhost:1313/thedevops/5-learn/5.3-github/5.3.4-pages/",
+	"title": "Github Pages",
+	"tags": [],
+	"description": "",
+	"content": "Getting Your Website Online Setting up a static site host Github Pages: https://pages.github.com/\n1- Create repo \u0026amp; Upload files\n2- Go to Settings:\nPages:\nCheck website: 3- Create Sub website:\nCreate new repo: test-project Crate a new file: index.html\nThis is my index page! Go to Settings - Pages Build and devployment Source: Deloy form a branch Branch: main -\u0026gt; Save Refesh curent page Check github websites: "
+},
+{
 	"uri": "http://localhost:1313/thedevops/4-cleanup/4.1-ec2/",
 	"title": "IaC",
 	"tags": [],
@@ -253,6 +267,13 @@
 },
 {
 	"uri": "http://localhost:1313/thedevops/4-cleanup/4.2-jenkins/",
+	"title": "CICD",
+	"tags": [],
+	"description": "",
+	"content": "We are processing \u0026hellip;.\n"
+},
+{
+	"uri": "http://localhost:1313/thedevops/7-projects/7.2-aws/",
 	"title": "CICD",
 	"tags": [],
 	"description": "",
@@ -292,6 +313,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Devops projects are processing \u0026hellip;..\nContent Jenkins GitLab Monitoring Security Linux Docker "
+},
+{
+	"uri": "http://localhost:1313/thedevops/7-projects/",
+	"title": "Projects",
+	"tags": [],
+	"description": "",
+	"content": "Projects Wellcome to my projects\nContent Hugo AWS "
 },
 {
 	"uri": "http://localhost:1313/thedevops/categories/",

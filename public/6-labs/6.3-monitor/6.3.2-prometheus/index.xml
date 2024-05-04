@@ -4,7 +4,7 @@
     <title>Prometheus on </title>
     <link>http://localhost:1313/thedevops/6-labs/6.3-monitor/6.3.2-prometheus/</link>
     <description>Recent content in Prometheus on </description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <atom:link href="http://localhost:1313/thedevops/6-labs/6.3-monitor/6.3.2-prometheus/index.xml" rel="self" type="application/rss+xml" />
   </channel>

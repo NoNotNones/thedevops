@@ -12,6 +12,8 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.5-linux/6.5.1-frontend/</loc>
   </url><url>
+    <loc>http://localhost:1313/thedevops/7-projects/7.1-hugo/</loc>
+  </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.1-ec2/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/1-intro/</loc>
@@ -68,6 +70,8 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.4-git/</loc>
   </url><url>
+    <loc>http://localhost:1313/thedevops/5-learn/5.3-github/5.3.4-pages/</loc>
+  </url><url>
     <loc>http://localhost:1313/thedevops/4-cleanup/4.1-ec2/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/4-cleanup/</loc>
@@ -75,6 +79,8 @@
     <loc>http://localhost:1313/thedevops/6-labs/6.4-security/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/4-cleanup/4.2-jenkins/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/7-projects/7.2-aws/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/5-learn/</loc>
   </url><url>
@@ -85,6 +91,8 @@
     <loc>http://localhost:1313/thedevops/6-labs/6.6-docker/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/7-projects/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/categories/</loc>
   </url><url>
