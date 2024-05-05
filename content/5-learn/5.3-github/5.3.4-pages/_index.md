@@ -6,24 +6,17 @@ chapter : false
 pre : " <b> 5.3.4 </b> "
 ---
 
+#### Overviews
+
+{{%attachments style="grey" /%}}
+{{%attachments title="Related files" pattern=".*\.(pdf|mp4|png|Dockerfile)$"/%}}
 
 #### [Learning GitHub Pages](https://www.linkedin.com/learning/learning-github-pages/hosting-your-content-for-free-on-github?resume=false&u=103729754)
 
 Lab Content: https://raybo.org/slides_publish/
+
 Use Repository: https://github.com/LinkedInLearning/publish-github-2894570
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
-
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
-
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
-
-[x] - Check
 
 #### [Getting Your Website Online](https://www.linkedin.com/learning/getting-your-website-online-18759497/setting-up-a-static-site-host?resume=false&u=103729754)
 
@@ -53,9 +46,9 @@ Pages:
 
 - Crate a new file: **index.html**
 
-````sh
+```js
 This is my index page!
-````
+```
 
 - Go to Settings - Pages
   - Build and devployment
@@ -76,6 +69,10 @@ This is my index page!
 - Setting up domain and host with a website builder: https://www.squarespace.com/
 ![534](/thedevops/images/5-learn/5.3-github/5.3.4-pages/8.png?featherlight=false&width=40pc)
 ![534](/thedevops/images/5-learn/5.3-github/5.3.4-pages/9.png?featherlight=false&width=40pc)
+![534](/thedevops/images/5-learn/5.3-github/5.3.4-pages/10.png?featherlight=false&width=40pc)
 
 - Publishing projects on social coding platforms
-![534](/thedevops/images/5-learn/5.3-github/5.3.4-pages/10.png?featherlight=false&width=40pc)
+![534][10]
+
+
+[10]: /thedevops/images/5-learn/5.3-github/5.3.4-pages/10.png?featherlight=false&width=40pc

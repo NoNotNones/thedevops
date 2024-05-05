@@ -242,7 +242,7 @@
 	"title": "Github Pages",
 	"tags": [],
 	"description": "",
-	"content": "Getting Your Website Online Setting up a static site host Github Pages: https://pages.github.com/\n1- Create repo \u0026amp; Upload files\n2- Go to Settings:\nPages:\nCheck website: 3- Create Sub website:\nCreate new repo: test-project Crate a new file: index.html\nThis is my index page! Go to Settings - Pages Build and devployment Source: Deloy form a branch Branch: main -\u0026gt; Save Refesh curent page Check github websites: "
+	"content": "Overviews Dockerfile\rDockerfile\r(0 KB)\rContent goes here...\rLearning GitHub Pages Lab Content: https://raybo.org/slides_publish/\nUse Repository: https://github.com/LinkedInLearning/publish-github-2894570\nGetting Your Website Online Setting up a static site host Github Pages: https://pages.github.com/\n1- Create repo \u0026amp; Upload files\n2- Go to Settings:\nPages:\nCheck website: 3- Create Sub website:\nCreate new repo: test-project Crate a new file: index.html\nThis is my index page! Go to Settings - Pages Build and devployment Source: Deloy form a branch Branch: main -\u0026gt; Save Refesh curent page Check github websites: Reference: https://www.netlify.com\nOverview: There\u0026rsquo;s a free tier that allows you to host multiple websites, as well as other features, such as rolling back to previous versions It could be connect to ant Git host Can manual deploy : https://app.netlify.com/drop Setting up domain and host with a website builder: https://www.squarespace.com/ Publishing projects on social coding platforms "
 },
 {
 	"uri": "http://localhost:1313/thedevops/4-cleanup/4.1-ec2/",
