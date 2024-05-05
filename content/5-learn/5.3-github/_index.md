@@ -5,6 +5,9 @@ weight : 3
 chapter : false
 pre : " <b> 5.3 </b> "
 ---
+
+[Home](./_index.md) | [Workflow](./5.3.1-workflow/_index.md) | [Challenge](./5.3.2-challenge/_index.md) | [Advanced](./5.3.3-advanced/_index.md) | [Pages](./5.3.4-pages/_index.md)
+
 ### Learning GitHub Actions
 - [Source: Linkedin Learning](https://www.linkedin.com/learning/learning-github-actions-2/automating-with-github-actions-2?u=103729754) 
 - GitHub Actions is a continuous integration tool that allows developers to automate tasks for their web projects. In this course, learn how to use this powerful tool to build workflows triggered by events, develop a continuous integration and continuous delivery (CI/CD) pipeline, and create custom actions.
