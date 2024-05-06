@@ -12,7 +12,7 @@ Wellcome to my projects
 
 ## Content
 
-1. [Hugo](7.1-hugo/)
+1. [Cloud Quest](7.1-cquest/)
 2. [AWS](7.2-aws/)
 
 

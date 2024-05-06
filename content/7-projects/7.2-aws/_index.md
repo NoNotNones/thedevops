@@ -1,9 +1,9 @@
 ---
-title : "CICD"
+title : "AWS"
 date : "`r Sys.Date()`"
-weight : 5
+weight : 2
 chapter : false
-pre : " <b> 4.2 </b> "
+pre : " <b> 7.2 </b> "
 ---
 
 We are processing ....
