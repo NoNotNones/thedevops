@@ -14,18 +14,18 @@
 	"content": "In a Jenkins CI/CD setup, an agent is a worker node that performs the tasks defined in the Jenkins pipeline.\nAgent Hostname: Lab-Server\nRequired: Installed JAVA Configuration:\nInstall JAVA: apt install openjdk-11-jdk -y Create User: adduser jenkins Create working folder: mkdir /var/lib/jenkins Permission: chown jenkins. /var/lib/jenkins cd /var/lib/jenkins/ su jenkins Jenkins-Server Add Node: Dashboard \u0026gt; Manage Jenkins \u0026gt; Nodes \u0026gt; New node\nNode name: lab-server Number of excute: 1 Lables: lab-server Custom workdir path: /var/lib/jenkins Add inbound port: 8999 Manage Jenkins - Security\nAgent - Fixed: 8999 Connect Jenkins to Gitlab-Server "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.1-compute/",
-	"title": "Cloud Computing",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.1-compute/",
+	"title": "Cloud Computing Essentials",
 	"tags": [],
 	"description": "",
-	"content": "Migrate an existing website to static website hosting on Amazaon S3 to improve reliability.\n"
+	"content": "Business Request The city\u0026rsquo;s web portal needs to migrate the beach wave size prediction page to AWS to improve reliability.\nLearning Objectives Articulate the characteristics of the AWS cloud computing platform. Describe the core benefits of using AWS products and services. Compare and contrast AWS cloud services to On-Premises infrastructure. Implement hosting a static web page using Amazon S3. LEARN PLAN "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/",
 	"title": "Cloud Quest",
 	"tags": [],
 	"description": "",
-	"content": "We are processing \u0026hellip;.\n"
+	"content": "CLOUD Quest - Cloud Practitioner Cloud Practitioners will build basic cloud solutions using AWS services. You will learn about AWS Cloud concepts, security concepts, common use cases, billing and pricing models and business impacts.\nLearning Objectives For each assignment, you will receive an automated account to build a new solution on the AWS console.\n1 - Cloud Computing Essentials : Create Amazon EC2 instances to run the computational modules for the island stabilization system. Each instance should be placed in a different Availability Zone in same Region.\n2 - Cloud First: Migrate an existing website to static website hosting on Amazon S3 to improve reliability\n3 - Computing Solutions: Increate the size of an Amazon EC2 instance to provide better application performance\n4 - Cloud Economics: Configure a price estimate for an architecture that uses a variable amount of Amazon EC2 instances based on peak usage time.\n5 - Networking: Review and change VPC network configurations to fix a connection issue\n6 - VPCs: Allow communication between application hosted in different VPCs by using VPC perring. The Marketing and Developer EC2 instances need to access the Financial Services Server in the Finance department\u0026rsquo;s VPC.\n7 - Database: Improve the operational efficiency of databases by using multiple Availability Zones and a read replica.\n8 - Security: Use IAM to provide work permissions to engineers by using group settings and the least privilege principle.\n9 - File Systems: Deploy and maintain a file systems infratructure that is accessible form three different servers.\n10 - NoSQL: Craete a database to help our video streaming team track customer viewing behaviors from metadata, such as movies watched and device type\n11 - Auto-healing and Scalling App: Create and configure an Amazon EC2 Auti Scaling group that follows scheduled scaling activities to add and remove EC2 instances.\n12 - Highly Available: Increase website reliability by creating a highly available architecture that spans multiple Availability Zones with load balancing and health monitoring.\n"
 },
 {
 	"uri": "http://localhost:1313/thedevops/2-prepair/2.1-docker/",
@@ -67,7 +67,7 @@
 	"title": "Jenkins",
 	"tags": [],
 	"description": "",
-	"content": "Overview Jenkins is an open-source automation server that is widely used for automating software development processes such as building, testing, and deploying applications. It allows developers to automate repetitive tasks associated with the software development lifecycle, thereby saving time and reducing errors.\nJenkins Server Installation Login vagrant ssh machine2 Install Jenkins server in Linux Login Jenkins-Server\nInstallation :\nvi jenkins-install.sh\n#!/bin/bash apt install openjdk-11-jdk -y java --version wget -p -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - sh -c \u0026#39;echo deb http://pkg.jenkins.io/debian-stable binary/ \u0026gt; /etc/apt/sources.list.d/jenkins.list\u0026#39; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5BA31D57EF5975CA apt-get update apt install jenkins -y systemctl start jenkins systemctl enable jenkins ufw allow 8080 chmod +x jenkins-install.sh\rsh jenkins-install.sh\rsystemctl status jenkins\rInstall Jenkins server running in docker container Prepair sudo -i\rapt update\rmkdir /tools\rcd /tools\rmkdir docker\rcd docker\rvi install-docker.sh File content: install-docker.sh\n#!/bin/bash sudo apt update sudo apt install -y apt-transport-https ca-certificates curl software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg echo \u0026#34;deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\u0026#34; | sudo tee /etc/apt/sources.list.d/docker.list \u0026gt; /dev/null sudo apt update sudo apt install -y docker-ce sudo systemctl start docker sudo systemctl enable docker sudo curl -L \u0026#34;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)\u0026#34; -o /usr/local/bin/docker-compose sudo chmod +x /usr/local/bin/docker-compose docker --version docker-compose --version Install chmod +x install-docker.sh\rsh install-docker.sh Create Docker compose file mkdir /tools/jenkins\rcd /tools/jenkins\rvi docker-compose.yml version: \u0026#39;3\u0026#39; services: # Jenkins jenkins: container_name: jenkins image: jenkins/jenkins ports: - \u0026#34;8080:8080\u0026#34; volumes: - jenkins_home:/var/jenkins_home volumes: jenkins_home: Run Jenkins Server docker-compose up jenkins -d Configuration Jenkins Server: Login: http://192.168.61.110:8080 Configuration ## Admin password: docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword Overview Content Jenkins CICD Advanced "
+	"content": "Overview Jenkins is an open-source automation server that is widely used for automating software development processes such as building, testing, and deploying applications. It allows developers to automate repetitive tasks associated with the software development lifecycle, thereby saving time and reducing errors.\nLogin vagrant ssh machine2 Install Jenkins server in Linux Login Jenkins-Server Installation : Step by step\r# Change to the root user after logging in: sudo su - # Add the aptitude key for the Jenkins application: wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add - # Add the Jenkins debian repo to the aptitude sources list: echo \u0026#34;deb https://pkg.jenkins.io/debian-stable binary/\u0026#34; \u0026gt; /etc/apt/sources.list.d/jenkins.list # Update the source lists and upgrade any out of date packages: apt update apt -y upgrade # Install the software for the Jenkins master: openjdk-11-jdk, nginx, and jenkins. # Install JDK and nginx first: apt -y install openjdk-11-jdk nginx # Then install jenkins: apt -y install jenkins # Confirm that jenkins and nginx are installed: systemctl status nginx | grep Active systemctl status jenkins | grep Active Install via shell scripts (checking ...)\rvi **jenkins-install.sh**\r#!/bin/bash apt install openjdk-11-jdk -y java --version wget -p -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - sh -c \u0026#39;echo deb http://pkg.jenkins.io/debian-stable binary/ \u0026gt; /etc/apt/sources.list.d/jenkins.list\u0026#39; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5BA31D57EF5975CA apt-get update apt install jenkins -y systemctl start jenkins systemctl enable jenkins ufw allow 8080 chmod +x jenkins-install.sh\rsh jenkins-install.sh\rsystemctl status jenkins\rInstall Jenkins server running in docker container Step by step\rPrepair sudo -i\rapt update\rmkdir /tools\rcd /tools\rmkdir docker\rcd docker\rvi install-docker.sh File content: install-docker.sh\n#!/bin/bash sudo apt update sudo apt install -y apt-transport-https ca-certificates curl software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg echo \u0026#34;deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\u0026#34; | sudo tee /etc/apt/sources.list.d/docker.list \u0026gt; /dev/null sudo apt update sudo apt install -y docker-ce sudo systemctl start docker sudo systemctl enable docker sudo curl -L \u0026#34;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)\u0026#34; -o /usr/local/bin/docker-compose sudo chmod +x /usr/local/bin/docker-compose docker --version docker-compose --version Install chmod +x install-docker.sh\rsh install-docker.sh Create Docker compose file mkdir /tools/jenkins\rcd /tools/jenkins\rvi docker-compose.yml version: \u0026#39;3\u0026#39; services: # Jenkins jenkins: container_name: jenkins image: jenkins/jenkins ports: - \u0026#34;8080:8080\u0026#34; volumes: - jenkins_home:/var/jenkins_home volumes: jenkins_home: Run Jenkins Server docker-compose up jenkins -d Configuration Jenkins Server: Login: http://192.168.33.110:8080\nConfiguration\nAdmin Configuration: expand\r## Admin password: docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword Dashboard Overview Create a pipeline project Content Jenkins CICD Advanced "
 },
 {
 	"uri": "http://localhost:1313/thedevops/5-learn/5.1-sre/",
@@ -126,7 +126,7 @@
 	"content": "Amazon Web Services (AWS) is a comprehensive and widely used cloud computing platform provided by Amazon. It offers a vast array of services, allowing individuals and businesses to build and deploy scalable applications and services without the need to invest in physical infrastructure\nOverview AWS CLI : The AWS Command Line Interface (CLI) is a powerful tool provided by Amazon Web Services (AWS) that allows you to interact with AWS services directly from your command line or terminal It provides a convenient and scriptable way to manage your AWS resources without needing to use the AWS Management Console Configuration Prepair and run docker compose file\ndocker-compose run --rm aws --version AWS: Create keypair to access AWS Instances: tf-cli-keypair.pem\ndocker-compose run --rm aws ec2 create-key-pair --key-name tf-cli-keypair --query \u0026#39;KeyMaterial\u0026#39; --output text \u0026gt; tf-cli-keypair.pem Create AWS Account for Terraform use AWS CLI: tf-cli\ndocker-compose run --rm aws iam create-user --user-name tf-cli AWS Checking keypair: Create Access Key \u0026amp; export to local\ndocker-compose run --rm aws iam create-access-key --user-name tf-cli \u0026gt; tf_cli-access_key.json Create policy and configure to allow access EC2 and Limit Region\nCreate a custom policy file: ec2-limited-access-policy.json {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: \u0026#34;ec2:*\u0026#34;,\r\u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34;,\r\u0026#34;Condition\u0026#34;: {\r\u0026#34;StringEquals\u0026#34;: {\r\u0026#34;ec2:Region\u0026#34;: \u0026#34;ap-southeast-1\u0026#34;\r}\r}\r}\r]\r} Create a IAM policy: EC2FullAccessAPSouthEast1 docker-compose run --rm aws iam create-policy --policy-name EC2FullAccessAPSouthEast1 --policy-document file://ec2-limited-access-policy.json Attach the Policy to the IAM User: (tf-cli) docker-compose run --rm aws iam attach-user-policy --user-name tf-cli --policy-arn arn:aws:iam::637423373411:policy/EC2FullAccessAPSouthEast1 AWS Checking User: "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.2-aws/",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.2-aws/",
 	"title": "AWS",
 	"tags": [],
 	"description": "",
@@ -154,11 +154,11 @@
 	"content": "Updating \u0026hellip;.\n"
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.2-cloudfirst/",
-	"title": "Cloud First",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.2-cloudfirst/",
+	"title": "Cloud First Steps",
 	"tags": [],
 	"description": "",
-	"content": "Create Amazon EC2 instances to run the computational modules for the island stabilization system. Each instance should be placed in a different Availability Zone in the same Region\n"
+	"content": "Business Request The island\u0026rsquo;s stabilization system is failing and needs increased reliability and availability for its computational modules.\nLearning Objectives Summarize AWS Infrastructure benefits. Describe AWS Regions and Availability Zones. Deploy Amazon EC2 instances into multiple Availability Zones. "
 },
 {
 	"uri": "http://localhost:1313/thedevops/6-labs/6.2-gitlab/",
@@ -210,11 +210,11 @@
 	"content": "Updating \u0026hellip;.\n"
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.3-computing/",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.3-computing/",
 	"title": "Computing Solutions",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request The school server that runs the scheduling solution needs more memory. Assist with vertically scaling their Amazon EC2 instance.\nLearning Objectives Describe Amazon EC2 instance families and instance types. Describe horizontal and vertical scaling. Recognize options for connecting to Amazon EC2 instances. "
 },
 {
 	"uri": "http://localhost:1313/thedevops/3-config/",
@@ -252,11 +252,11 @@
 	"content": "Terraform is a open-source tool used to build, modify, and version control infratrucrure\nOverview Provider(provider.tf): Enables Terrafrom to interact with cloud providers and other APIs Terraform (versions.tf): Sets version constaints for Terraform and optionally maps provides to a source address and version constaint Variables (variable.tf): Input variables define reusable values and work like function arguments in general-purpose programming languages Resource (main.tf): Resource blocks describe infrastructure objects like VPCs, subnets, route tables, and gateways Data : Data sources allow Terraform to ultilize information form resources that were defined outside of Terraform (or defined a different Terraform configuration) Output: Outputs return structured data form your configuration and work like return values in generaral-purpose programming languages Terraform.tfvars: To set lots of variables, it is more convenient to specify their values in a variable definitions file Command terraform init [options]: command initializes a working directory containing Terraform configuration files. terraform plan [options]: command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure. terraform apply [options] [plan file]: command executes the actions proposed in a Terraform plan terraform destroy [options]: command is a convenient way to destroy all remote objects managed by a particular Terraform configuration. Run Terraform in containter: Run docker compose:\ndocker-compose run --rm terraform version Run configure:\nProvider (AWS): versions.tf\nterraform {\rrequired_providers {\raws = {\rsource = \u0026#34;hashicorp/aws\u0026#34;\rversion = \u0026#34;~\u0026gt; 4.16\u0026#34;\r}\r}\rrequired_version = \u0026#34;\u0026gt;= 1.2.0\u0026#34;\r} Security credential variables: variables.tf\nvariable \u0026#34;access_key\u0026#34; {\rtype = string\rsensitive = true\r}\rvariable \u0026#34;secret_key\u0026#34; {\rtype = string\rsensitive = true\r}\rvariable \u0026#34;region\u0026#34; {\rtype = string\rdefault = \u0026#34;ap-southeast-1\u0026#34;\r} Terraform init:\ndocker-compose run --rm terraform init "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.4-ceconomics/",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.4-ceconomics/",
 	"title": "Cloud Economics",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request The city\u0026rsquo;s surf board shop needs a cost estimation of an architecture with variable resource usage.\nLearning Objectives Describe how pricing estimates are obtained. Use the AWS Pricing Calculator to estimate the price of an AWS architecture. "
 },
 {
 	"uri": "http://localhost:1313/thedevops/6-labs/6.3-monitor/6.3.4-elk/",
@@ -333,14 +333,21 @@
 	"title": "Local",
 	"tags": [],
 	"description": "",
-	"content": "Overview We will use local environment with Vagrant and VirtualBox to test best practices.\nVagrant Vagrant is an open-source tool for building and managing virtualized development environments. It helps developers create and configure reproducible and portable development environments that closely mimic production setups. Virtualbox VirtualBox is a powerful open-source virtualization software developed by Oracle Corporation. It allows users to run multiple guest operating systems (OS) simultaneously on a single physical machine. Configuration Requirement\nMachine 1: Linux-server IP: 192.168.33.100 Memory: 2048 Mb Machine 2: Jenkins-server IP: 192.168.33.110 Memory: 5120 Mb Machine 3: Monitor-server IP: 192.168.33.120 Memory: 2048 Mb Vagrantfile\n# -*- mode: ruby -*-\r# vi: set ft=ruby :\rVagrant.configure(\u0026#34;2\u0026#34;) do |config|\rconfig.vm.box = \u0026#34;ubuntu/focal64\u0026#34;\r# Configuration for the first virtual machine\rconfig.vm.define \u0026#34;machine1\u0026#34; do |machine1|\rmachine1.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.100\u0026#34;\rmachine1.vm.hostname = \u0026#34;linux-server\u0026#34;\rmachine1.vm.provider \u0026#34;virtualbox\u0026#34; do |vb|\rvb.memory = \u0026#34;2048\u0026#34;\rend\rmachine1.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34; end\r# Configuration for the second virtual machine\rconfig.vm.define \u0026#34;machine2\u0026#34; do |machine2|\rmachine2.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.110\u0026#34;\rmachine2.vm.hostname = \u0026#34;jenkins-server\u0026#34;\rmachine2.vm.provider \u0026#34;virtualbox\u0026#34; do |vb|\rvb.memory = \u0026#34;5120\u0026#34;\rend\rmachine2.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34;\rend\r# Configuration for the third virtual machine\rconfig.vm.define \u0026#34;machine3\u0026#34; do |machine3|\rmachine3.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.120\u0026#34;\rmachine3.vm.hostname = \u0026#34;monitor-server\u0026#34;\rmachine3.vm.provider \u0026#34;virtualbox\u0026#34; do |vb|\rvb.memory = \u0026#34;2048\u0026#34;\rend\rmachine3.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34; machine3.vm.provision \u0026#34;shell\u0026#34;, inline: \u0026lt;\u0026lt;-SHELL\rapt-get update\rSHELL\rend\rend Installation\nvagrant up vagrant status vagrant ssh vagrant halt "
+	"content": "Overview We will use local environment with Vagrant and VirtualBox to test best practices.\nVagrant Vagrant is an open-source tool for building and managing virtualized development environments. It helps developers create and configure reproducible and portable development environments that closely mimic production setups. Virtualbox VirtualBox is a powerful open-source virtualization software developed by Oracle Corporation. It allows users to run multiple guest operating systems (OS) simultaneously on a single physical machine. Configuration Requirement\nMachine 1: Linux-server IP: 192.168.33.100 Memory: 2048 Mb Machine 2: Jenkins-server IP: 192.168.33.110 Memory: 5120 Mb Machine 3: Monitor-server IP: 192.168.33.120 Memory: 2048 Mb Vagrantfile Expand:\r# -*- mode: ruby -*- # vi: set ft=ruby : Vagrant.configure(\u0026#34;2\u0026#34;) do |config| config.vm.box = \u0026#34;ubuntu/focal64\u0026#34; # Configuration for the first virtual machine config.vm.define \u0026#34;machine1\u0026#34; do |machine1| machine1.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.100\u0026#34; machine1.vm.hostname = \u0026#34;linux-server\u0026#34; machine1.vm.provider \u0026#34;virtualbox\u0026#34; do |vb| vb.memory = \u0026#34;2048\u0026#34; end machine1.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34; end # Configuration for the second virtual machine config.vm.define \u0026#34;machine2\u0026#34; do |machine2| machine2.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.110\u0026#34; machine2.vm.hostname = \u0026#34;jenkins-server\u0026#34; machine2.vm.provider \u0026#34;virtualbox\u0026#34; do |vb| vb.memory = \u0026#34;5120\u0026#34; end machine2.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34; end # Configuration for the third virtual machine config.vm.define \u0026#34;machine3\u0026#34; do |machine3| machine3.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.33.120\u0026#34; machine3.vm.hostname = \u0026#34;monitor-server\u0026#34; machine3.vm.provider \u0026#34;virtualbox\u0026#34; do |vb| vb.memory = \u0026#34;2048\u0026#34; end machine3.vm.synced_folder \u0026#34;./datas\u0026#34;, \u0026#34;/vagrant_data\u0026#34; machine3.vm.provision \u0026#34;shell\u0026#34;, inline: \u0026lt;\u0026lt;-SHELL apt-get update SHELL end end Run\nvagrant up vagrant status vagrant ssh vagrant halt\rvagrant reload\rfor upgrade Ram, CPU\nvagrant destroy -f\rDestroy all machine\nWindows WSL \u0026amp; Vagrant Source review\nRequirements:\nWindows 10 Virtualbox WSL 2 Vagrant Vagrant plugin: vitualbox_WSL2 Install VirtualBox\nInstall WSL2: wsl -l -v\nInstall Powershell Preview\nInvoke-Expression \u0026#34;\u0026amp; { $(Invoke-Restmethod https://aka.ms/install-powershell.ps1) } -UseMSI -Preview\u0026#34; Install Vagrant (PS) # run inside WSL 2 # check https://www.vagrantup.com/downloads for more info curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - sudo apt-add-repository \u0026#34;deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main\u0026#34; sudo apt-get update \u0026amp;\u0026amp; sudo apt-get install vagrant Update Vagrant (PS): vagrant --version choco install vagrant --version 2.4.1 Enable WSL 2 support (The Terminal on WSL2) # append those two lines into ~/.bashrc echo \u0026#39;export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS=\u0026#34;1\u0026#34;\u0026#39; \u0026gt;\u0026gt; ~/.bashrc echo \u0026#39;export PATH=\u0026#34;$PATH:/mnt/c/Program Files/Oracle/VirtualBox\u0026#34;\u0026#39; \u0026gt;\u0026gt; ~/.bashrc # now reload the ~/.bashrc file source ~/.bashrc Install virtualbox_WSL2 plugin (The Terminal on WSL2) # Install virtualbox_WSL2 plugin vagrant plugin install virtualbox_WSL2 Install and configured (The Terminal on WSL2) # Go to Windows user\u0026#39;s dir from WSL cd /mnt/c/Users/\u0026lt;my-user-name\u0026gt;/ # Create a project dir mkdir -p projects/vagrant-demo cd projects/vagrant-demo # Create a Vagrantfile using Vagrant CLI vagrant init hashicorp/bionic64 ls -l Vagrantfile # Start a VM using Vagrantfile vagrant up # Login to the VM # (password is \u0026#39;vagrant\u0026#39;) vagrant ssh # Done :) Processing\rVagrantfile Vagrantfile (WSL): # -*- mode: ruby -*- # vi: set ft=ruby : Vagrant.configure(\u0026#34;2\u0026#34;) do |config| # Machine 1 configuration config.vm.define \u0026#34;machine1\u0026#34; do |machine1| machine1.vm.box = \u0026#34;hashicorp/bionic64\u0026#34; machine1.vm.hostname = \u0026#34;machine1\u0026#34; machine1.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.56.101\u0026#34; machine1.vm.provider \u0026#34;virtualbox\u0026#34; do |vb| vb.memory = 1024 vb.cpus = 1 end end # Machine 2 configuration config.vm.define \u0026#34;machine2\u0026#34; do |machine2| machine2.vm.box = \u0026#34;hashicorp/bionic64\u0026#34; machine2.vm.hostname = \u0026#34;machine2\u0026#34; machine2.vm.network \u0026#34;private_network\u0026#34;, ip: \u0026#34;192.168.56.102\u0026#34; machine2.vm.provider \u0026#34;virtualbox\u0026#34; do |vb| vb.memory = 1024 vb.cpus = 1 end end end vagrant ssh machine1 password: vagrant "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.5-networking/",
-	"title": "Networking",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.5-networking/",
+	"title": "Networking Concepts",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request Help the bank setup a secure networking environment which allows communication between resources and the internet.\nLearning Objectives Define key features of VPCs, subnets, internet gateways and route tables. Describe the benefits of using Amazon VPCs. State the basics of CIDR block notation and IP addressing. Explain how VPC traffic is routed and secured using gateways, network access control lists, and security groups. "
+},
+{
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.6-vpc/",
+	"title": "Connecting VPCs",
+	"tags": [],
+	"description": "",
+	"content": "Business Request The city\u0026rsquo;s marketing team wants separate Amazon VPCs for each department that allows communication between Amazon VPCs.\nLearning Objectives Summarize how VPC peering works with Amazon VPC. Explain the steps for establishing a VPC peering connection. Create a peering connection between two Amazon VPCs. Establish a peering connection between Amazon VPCs using a specific subnet. "
 },
 {
 	"uri": "http://localhost:1313/thedevops/6-labs/6.6-docker/",
@@ -357,60 +364,53 @@
 	"content": "Devops projects are processing \u0026hellip;..\nContent Jenkins GitLab Monitoring Security Linux Docker "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.6-vpc/",
-	"title": "VPCs",
-	"tags": [],
-	"description": "",
-	"content": "\n"
-},
-{
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.7-database/",
-	"title": "Database",
-	"tags": [],
-	"description": "",
-	"content": "\n"
-},
-{
-	"uri": "http://localhost:1313/thedevops/7-projects/",
-	"title": "Projects",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/",
+	"title": "AWS Projects",
 	"tags": [],
 	"description": "",
 	"content": "Projects Wellcome to my projects\nContent Cloud Quest AWS "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.8-security/",
-	"title": "Security",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.7-database/",
+	"title": "DDatabases in Practice",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request Improve the insurance company\u0026rsquo;s relational database operations, performance, and availability.\nLearning Objectives Review the features, benefits and database types available with Amazon RDS. Describe vertical and horizontal scaling on Amazon RDS. Use Amazon RDS read replicas to increase database performance. Implement multi-AZ deployments of Amazon RDS to increase availability. "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.9-efs/",
-	"title": "File Systems",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.8-security/",
+	"title": "SCore Security Concepts",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request Help improve security at the city\u0026rsquo;s stock exchange by ensuring that support engineers can only perform authorized actions.\nLearning Objectives Describe the creation process and differences between AWS IAM users, roles, and groups. Review the structure and components of AWS IAM Policies. Summarize the AWS Shared Responsibility Model and compliance programs. "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.10-nosql/",
-	"title": "NoSQL",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.9-efs/",
+	"title": "File Systems in the Cloud",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request Help the city\u0026rsquo;s pet modeling agency share file data without provisioning or managing storage.\nLearning Objectives Summarize the different storage options available on AWS. Summarize the key features and benefits of Amazon EFS. Identify business use cases for Amazon EFS. Configure Amazon EFS endpoints to access centralized storage. "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.11-healscal/",
-	"title": "Auto-Healing and Scalling App",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.10-nosql/",
+	"title": "First NoSQL Database",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request Help the island\u0026rsquo;s streaming entertainment service implement a NoSQL database to develop new features.\nLearning Objectives Summarize the different uses of common purpose-built databases. Describe the features and benefits of Amazon DynamoDB. Interact with the elements and attributes of an Amazon DynamoDB database. Set Up a NoSQL database with Amazon DynamoDB. "
 },
 {
-	"uri": "http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.12-ha/",
-	"title": "Highly Available",
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.11-healscal/",
+	"title": "Auto-healing and Scaling Applications",
 	"tags": [],
 	"description": "",
-	"content": "\n"
+	"content": "Business Request Assist the city\u0026rsquo;s gaming cafe with implementing auto healing servers while restricting patrons to a specific provisioning capacity.\nLearning Objectives Describe the auto healing and scaling capabilities offered by Auto Scaling groups. Create an Auto Scaling group with strict resource boundaries. Configure an Auto Scaling group to respond to a time-based event. "
+},
+{
+	"uri": "http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.12-ha/",
+	"title": "Highly Available Web Applications",
+	"tags": [],
+	"description": "",
+	"content": "Business Request Help the travel agency create a highly available web application architecture.\nLearning Objectives Describe the principles for architecting highly available applications. Summarize the benefits of using an AWS Application Load Balancer (ALB). Use Auto Scaling groups with load balancing and health monitoring. "
 },
 {
 	"uri": "http://localhost:1313/thedevops/categories/",

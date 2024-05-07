@@ -6,9 +6,9 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.1-jenkins/6.1.1-cicd/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.1-compute/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.1-compute/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.1-docker/</loc>
   </url><url>
@@ -38,7 +38,7 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.2-aws/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.2-aws/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.2-aws/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.5-linux/6.5.2-backend/</loc>
   </url><url>
@@ -46,7 +46,7 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/3.2-cicd/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.2-cloudfirst/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.2-cloudfirst/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.2-gitlab/</loc>
   </url><url>
@@ -62,7 +62,7 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.2-gitlab/6.2.3-cicd/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.3-computing/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.3-computing/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/3-config/</loc>
   </url><url>
@@ -74,9 +74,7 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.3-terraform/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.4-ceconomics/</loc>
-  </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.7-database/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.4-ceconomics/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.3-monitor/6.3.4-elk/</loc>
   </url><url>
@@ -100,25 +98,27 @@
   </url><url>
     <loc>http://localhost:1313/thedevops/2-prepair/2.5-local/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.5-networking/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.5-networking/</loc>
+  </url><url>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.6-vpc/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/6.6-docker/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/6-labs/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.6-vpc/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.7-database/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.8-security/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.8-security/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.9-efs/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.9-efs/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.10-nosql/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.10-nosql/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.11-healscal/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.11-healscal/</loc>
   </url><url>
-    <loc>http://localhost:1313/thedevops/7-projects/7.1-cquest/7.1.12-ha/</loc>
+    <loc>http://localhost:1313/thedevops/7-awsprojects/7.1-cquest/7.1.12-ha/</loc>
   </url><url>
     <loc>http://localhost:1313/thedevops/categories/</loc>
   </url><url>

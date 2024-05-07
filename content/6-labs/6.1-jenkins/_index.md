@@ -9,14 +9,52 @@ pre : " <b> 6.1 </b> "
 #### Overview
 Jenkins is an open-source automation server that is widely used for automating software development processes such as building, testing, and deploying applications. It allows developers to automate repetitive tasks associated with the software development lifecycle, thereby saving time and reducing errors.
 
-#### Jenkins Server Installation
 - Login
   - **vagrant ssh machine2**
-1. Install Jenkins server in Linux
-  - Login Jenkins-Server
-  - Installation : 
   
+#### Install Jenkins server in Linux
+- Login Jenkins-Server
+- Installation : 
+  - {{%expand "Step by step" %}}
+
+```sh
+# Change to the root user after logging in:
+
+    sudo su -
+
+# Add the aptitude key for the Jenkins application:
+
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+# Add the Jenkins debian repo to the aptitude sources list:
+
+    echo "deb https://pkg.jenkins.io/debian-stable binary/" > /etc/apt/sources.list.d/jenkins.list
+
+# Update the source lists and upgrade any out of date packages:
+
+    apt update
+    apt -y upgrade
+
+# Install the software for the Jenkins master:  openjdk-11-jdk, nginx, and jenkins.
+
+# Install JDK and nginx first:
+    apt -y install openjdk-11-jdk nginx
+
+# Then install jenkins:
+
+    apt -y install jenkins
+
+  # Confirm that jenkins and nginx are installed:
+
+    systemctl status nginx  | grep Active
+    systemctl status jenkins  | grep Active
+```
+{{% /expand%}}
+
+  - {{%expand "Install via shell scripts (checking ...)" %}}
+
     vi **jenkins-install.sh**
+
 ````sh
     #!/bin/bash
 
@@ -35,7 +73,12 @@ ufw allow 8080
     sh jenkins-install.sh
     systemctl status jenkins
 
-2. Install Jenkins server running in docker container
+{{% /expand%}}
+
+#### Install Jenkins server running in docker container
+
+  - {{%expand "Step by step" %}}
+     
   - Prepair
 ```linux
    sudo -i
@@ -99,24 +142,28 @@ docker-compose up jenkins -d
 ```
 ![61](/thedevops/images/6-labs/6.1-jenkins/3.png)
 
+{{% /expand%}}
+
 #### Configuration Jenkins Server:
-- Login:
-```linux
-http://192.168.61.110:8080
-```
+- Login: `http://192.168.33.110:8080`
 - Configuration
-    
+  - {{%expand "Admin Configuration: expand" %}}    
  ```sh
 ## Admin password: 
 docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+
 ![61](/thedevops/images/6-labs/6.1-jenkins/4.png)
 ![61](/thedevops/images/6-labs/6.1-jenkins/5.png)
 ![61](/thedevops/images/6-labs/6.1-jenkins/6.png)
 ![61](/thedevops/images/6-labs/6.1-jenkins/7.png)
 ![61](/thedevops/images/6-labs/6.1-jenkins/8.png)
-- Overview
-![61](/thedevops/images/6-labs/6.1-jenkins/9.png)
+{{% /expand%}}
+
+- Dashboard Overview
+![61](/thedevops/images/6-labs/6.1-jenkins/9.png?featherlight=false&width=50pc)
+
+#### Create a pipeline project
 
 
 ### Content
