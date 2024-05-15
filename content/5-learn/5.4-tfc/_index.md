@@ -53,7 +53,7 @@ Terraform is a DevOps tool for declarative infrastructure—infrastructure as co
 - instance_type = "**t2.micro**"
 - region  = "**ap-southeast-1**"
 
-{{%expand "provider.tf" %}}
+{{%expand "providers.tf" %}}
 ```sh
 terraform {
   required_providers {
@@ -277,6 +277,57 @@ Run Terrafrom apply
 
 ![54](/thedevops/images/5-learn/5.4/7.png?featherlight=false&width=50pc)
 
+Terraform Cloud Overview
+
+![54](/thedevops/images/5-learn/5.4/9.png?featherlight=false&width=50pc)
+
 AWS Console Check
 
 ![54](/thedevops/images/5-learn/5.4/8.png?featherlight=false&width=50pc)
+
+Run Terrafrom destroy
+- Settings - Destruction and Deletion
+  - Destroy infrastructure -> Queue destroy plan
+  
+ ![54](/thedevops/images/5-learn/5.4/10.png?featherlight=false&width=50pc)
+
+ ![54](/thedevops/images/5-learn/5.4/12.png?featherlight=false&width=50pc)
+
+  - Delete Workspace 
+
+#### Amazone S3
+
+Configure file:
+
+
+
+
+{{%expand "main.tf" %}}
+```sh
+# S3 Bucket
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+
+```
+{{% /expand%}}
+{{%expand "providers.tf" %}}
+```sh
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+    }
+  }
+}
+
+provider "aws" {
+  region  = "us-west-2"
+}
+```
+{{% /expand%}}
