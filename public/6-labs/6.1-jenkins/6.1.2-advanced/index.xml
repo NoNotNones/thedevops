@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advanced on </title>
-    <link>https://nonotnonez.github.io/thedevops/6-labs/6.1-jenkins/6.1.2-advanced/</link>
+    <link>http://localhost:1313/thedevops/6-labs/6.1-jenkins/6.1.2-advanced/</link>
     <description>Recent content in Advanced on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="https://nonotnonez.github.io/thedevops/6-labs/6.1-jenkins/6.1.2-advanced/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/thedevops/6-labs/6.1-jenkins/6.1.2-advanced/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
